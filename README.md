@@ -6,3 +6,4 @@ Resources and CRD's currently supported:
 
 - istio
 - cronjob/v1beta1
+- poddisruptionbudget/v1beta1
