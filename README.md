@@ -1,12 +1,8 @@
 # kubernetes-json-schema
 
-A repo to host custom resource definitions and older versions of some resources to be use with `kubeval`. 
+A repo to host custom resource definitions and older versions of some resources to be use with `kubeval`, called from the `helm-charts` repo. 
 
-```bash
-kubeval --additional-schema-locations https://raw.githubusercontent.com/Frameio/kubernetes-json-schema/master -d .
-```
-
-CRD's currently supported:
+Resources and CRD's currently supported:
 
 - istio
 - cronjob/v1beta1
