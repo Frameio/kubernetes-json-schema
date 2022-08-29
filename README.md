@@ -11,3 +11,4 @@ Resources and CRD's currently supported:
 - cronjob/v1beta1
 - poddisruptionbudget/v1beta1
 - horizontalpodautoscaler-autoscaling-v2beta2
+- vaultsecret-v1alpha1
