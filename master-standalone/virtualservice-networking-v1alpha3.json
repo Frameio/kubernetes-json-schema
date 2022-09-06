@@ -1199,8 +1199,7 @@
           "type": "array"
         }
       },
-      "type": "object",
-      "additionalProperties": false
+      "type": "object"
     },
     "status": {
       "type": "object",
