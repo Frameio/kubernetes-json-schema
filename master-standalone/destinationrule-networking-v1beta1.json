@@ -1125,8 +1125,7 @@
                       "type": "boolean"
                     }
                   },
-                  "type": "object",
-                  "additionalProperties": false
+                  "type": "object"
                 },
                 "tcp": {
                   "description": "Settings common to both HTTP and TCP upstream connections.",
@@ -1158,16 +1157,13 @@
                           "type": "string"
                         }
                       },
-                      "type": "object",
-                      "additionalProperties": false
+                      "type": "object"
                     }
                   },
-                  "type": "object",
-                  "additionalProperties": false
+                  "type": "object"
                 }
               },
-              "type": "object",
-              "additionalProperties": false
+              "type": "object"
             },
             "loadBalancer": {
               "description": "Settings controlling the load balancer algorithms.",
@@ -1396,8 +1392,7 @@
                           "type": "string"
                         }
                       },
-                      "type": "object",
-                      "additionalProperties": false
+                      "type": "object"
                     },
                     "httpHeaderName": {
                       "description": "Hash based on a specific HTTP header.",
@@ -1415,8 +1410,7 @@
                           "type": "integer"
                         }
                       },
-                      "type": "object",
-                      "additionalProperties": false
+                      "type": "object"
                     },
                     "minimumRingSize": {
                       "description": "Deprecated.",
@@ -1429,16 +1423,14 @@
                           "type": "integer"
                         }
                       },
-                      "type": "object",
-                      "additionalProperties": false
+                      "type": "object"
                     },
                     "useSourceIp": {
                       "description": "Hash based on the source IP address.",
                       "type": "boolean"
                     }
                   },
-                  "type": "object",
-                  "additionalProperties": false
+                  "type": "object"
                 },
                 "localityLbSetting": {
                   "properties": {
@@ -1491,8 +1483,7 @@
                       "type": "array"
                     }
                   },
-                  "type": "object",
-                  "additionalProperties": false
+                  "type": "object"
                 },
                 "simple": {
                   "enum": [
@@ -1510,8 +1501,7 @@
                   "type": "string"
                 }
               },
-              "type": "object",
-              "additionalProperties": false
+              "type": "object"
             },
             "outlierDetection": {
               "properties": {
@@ -1554,8 +1544,7 @@
                   "type": "boolean"
                 }
               },
-              "type": "object",
-              "additionalProperties": false
+              "type": "object"
             },
             "portLevelSettings": {
               "description": "Traffic policies specific to individual ports.",
@@ -2120,8 +2109,7 @@
                   "type": "array"
                 }
               },
-              "type": "object",
-              "additionalProperties": false
+              "type": "object"
             },
             "tunnel": {
               "properties": {
@@ -2138,12 +2126,10 @@
                   "type": "integer"
                 }
               },
-              "type": "object",
-              "additionalProperties": false
+              "type": "object"
             }
           },
-          "type": "object",
-          "additionalProperties": false
+          "type": "object"
         },
         "workloadSelector": {
           "properties": {
@@ -2154,12 +2140,10 @@
               "type": "object"
             }
           },
-          "type": "object",
-          "additionalProperties": false
+          "type": "object"
         }
       },
-      "type": "object",
-      "additionalProperties": false
+      "type": "object"
     },
     "status": {
       "type": "object",

@@ -1,14 +1,7 @@
 # kubernetes-json-schema
 
-A repo to host custom resource definitions and older versions of some resources to be use with `kubeval`, called from the `helm-charts` repo. 
+A repo to host custom resource definitions and older versions of some resources to be use with `kubeval` and `kubeconform`, called from the `helm-charts` repo. 
 
-Resources and CRD's currently supported:
+## Add new schema
 
-- istio
-  - destinationrule-networking-v1beta1
-  - gateway-networking-v1beta1
-  - virtualservice-networking-v1beta1
-- cronjob/v1beta1
-- poddisruptionbudget/v1beta1
-- horizontalpodautoscaler-autoscaling-v2beta2
-- vaultsecret-v1alpha1
+Schema's are generated using the `build.sh` script. Schema's are generated based on the CRD YAML. The script downloads the CRD YAML into `input/` folder and then create the JSON schema and store them in the `master-standalone-strict` folder.
