@@ -46,6 +46,7 @@ function write_schema() {
   jq 'def strictify: . + if .type == "object" and has("properties") then {additionalProperties: false} + {properties: (({} + .properties) | map_values(strictify))} else null end; . * {properties: {spec: .properties.spec | strictify}}' "master-standalone/${1}" | sponge "master-standalone-strict/${1}"
 }
 
+crd_to_json_schema actions-runner-controller https://github.com/actions-runner-controller/actions-runner-controller/releases/download/v0.22.0/actions-runner-controller.yaml
 crd_to_json_schema argo-cd https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
 crd_to_json_schema argocd-extensions https://raw.githubusercontent.com/argoproj-labs/argocd-extensions/main/manifests/crds/argoproj.io_argocdextensions.yaml
 crd_to_json_schema argo-rollouts https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
