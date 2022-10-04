@@ -151,6 +151,10 @@
           "type": "object",
           "additionalProperties": false
         },
+        "permitOnlyProjectScopedClusters": {
+          "description": "PermitOnlyProjectScopedClusters determines whether destinations can only reference clusters which are project-scoped",
+          "type": "boolean"
+        },
         "roles": {
           "description": "Roles are user defined RBAC roles associated with this project",
           "items": {
