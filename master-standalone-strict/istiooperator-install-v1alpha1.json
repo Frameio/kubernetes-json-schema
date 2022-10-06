@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "x-kubernetes-preserve-unknown-fields": true,
+  "properties": {
+    "spec": null
+  }
+}
