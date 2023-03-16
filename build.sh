@@ -56,3 +56,5 @@ crd_to_json_schema istio https://raw.githubusercontent.com/istio/istio/master/ma
 crd_to_json_schema istio-operator https://raw.githubusercontent.com/istio/istio/master/manifests/charts/istio-operator/crds/crd-operator.yaml
 crd_to_json_schema kyverno https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
 crd_to_json_schema vault-secrets-operator https://raw.githubusercontent.com/ricoberger/vault-secrets-operator/main/config/crd/bases/ricoberger.de_vaultsecrets.yaml
+crd_to_json_schema karpenter-provisioners https://raw.githubusercontent.com/aws/karpenter/1ad615a9136c6f775b2ddb31a5b16b118feec51a/pkg/apis/crds/karpenter.sh_provisioners.yaml
+crd_to_json_schema karpenter-node-templates https://raw.githubusercontent.com/aws/karpenter/1ad615a9136c6f775b2ddb31a5b16b118feec51a/pkg/apis/crds/karpenter.k8s.aws_awsnodetemplates.yaml

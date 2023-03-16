@@ -96,7 +96,7 @@
           "type": "array"
         },
         "resolution": {
-          "description": "Service discovery mode for the hosts.",
+          "description": "Service resolution mode for the hosts.",
           "enum": [
             "NONE",
             "STATIC",
