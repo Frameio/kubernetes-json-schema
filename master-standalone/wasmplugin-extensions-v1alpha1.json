@@ -16,9 +16,11 @@
           "type": "string"
         },
         "match": {
+          "description": "Specifies the criteria to determine which traffic is passed to WasmPlugin.",
           "items": {
             "properties": {
               "mode": {
+                "description": "Criteria for selecting traffic by their direction.",
                 "enum": [
                   "UNDEFINED",
                   "CLIENT",
@@ -28,6 +30,7 @@
                 "type": "string"
               },
               "ports": {
+                "description": "Criteria for selecting traffic by their destination port.",
                 "items": {
                   "properties": {
                     "number": {

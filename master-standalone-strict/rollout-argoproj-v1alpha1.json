@@ -51,6 +51,16 @@
           "format": "int32",
           "type": "integer"
         },
+        "rollbackWindow": {
+          "properties": {
+            "revisions": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
         "selector": {
           "properties": {
             "matchExpressions": {
@@ -541,6 +551,10 @@
                   ],
                   "x-kubernetes-int-or-string": true
                 },
+                "minPodsPerReplicaSet": {
+                  "format": "int32",
+                  "type": "integer"
+                },
                 "pingPong": {
                   "properties": {
                     "pingService": {
@@ -858,6 +872,111 @@
                         },
                         "type": "object"
                       },
+                      "setHeaderRoute": {
+                        "properties": {
+                          "match": {
+                            "items": {
+                              "properties": {
+                                "headerName": {
+                                  "type": "string"
+                                },
+                                "headerValue": {
+                                  "properties": {
+                                    "exact": {
+                                      "type": "string"
+                                    },
+                                    "prefix": {
+                                      "type": "string"
+                                    },
+                                    "regex": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "headerName",
+                                "headerValue"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "setMirrorRoute": {
+                        "properties": {
+                          "match": {
+                            "items": {
+                              "properties": {
+                                "headers": {
+                                  "additionalProperties": {
+                                    "properties": {
+                                      "exact": {
+                                        "type": "string"
+                                      },
+                                      "prefix": {
+                                        "type": "string"
+                                      },
+                                      "regex": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "object"
+                                },
+                                "method": {
+                                  "properties": {
+                                    "exact": {
+                                      "type": "string"
+                                    },
+                                    "prefix": {
+                                      "type": "string"
+                                    },
+                                    "regex": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "path": {
+                                  "properties": {
+                                    "exact": {
+                                      "type": "string"
+                                    },
+                                    "prefix": {
+                                      "type": "string"
+                                    },
+                                    "regex": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "percentage": {
+                            "format": "int32",
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ],
+                        "type": "object"
+                      },
                       "setWeight": {
                         "format": "int32",
                         "type": "integer"
@@ -921,6 +1040,30 @@
                       "required": [
                         "mappings"
                       ],
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "apisix": {
+                      "properties": {
+                        "route": {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "rules": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "type": "object",
+                          "additionalProperties": false
+                        }
+                      },
                       "type": "object",
                       "additionalProperties": false
                     },
@@ -1015,6 +1158,18 @@
                               },
                               "type": "array"
                             },
+                            "tcpRoutes": {
+                              "items": {
+                                "properties": {
+                                  "port": {
+                                    "format": "int64",
+                                    "type": "integer"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
                             "tlsRoutes": {
                               "items": {
                                 "properties": {
@@ -1052,6 +1207,18 @@
                                 },
                                 "type": "array"
                               },
+                              "tcpRoutes": {
+                                "items": {
+                                  "properties": {
+                                    "port": {
+                                      "format": "int64",
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
                               "tlsRoutes": {
                                 "items": {
                                   "properties": {
@@ -1081,6 +1248,20 @@
                       },
                       "type": "object",
                       "additionalProperties": false
+                    },
+                    "managedRoutes": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
                     },
                     "nginx": {
                       "properties": {
@@ -1112,6 +1293,18 @@
                           "type": "string"
                         }
                       },
+                      "type": "object",
+                      "additionalProperties": false
+                    },
+                    "traefik": {
+                      "properties": {
+                        "weightedTraefikServiceName": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "weightedTraefikServiceName"
+                      ],
                       "type": "object",
                       "additionalProperties": false
                     }
@@ -4754,6 +4947,10 @@
                         "type": "object"
                       },
                       "maxSkew": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "minDomains": {
                         "format": "int32",
                         "type": "integer"
                       },

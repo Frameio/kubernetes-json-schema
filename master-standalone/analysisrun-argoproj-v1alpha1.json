@@ -267,6 +267,17 @@
                     },
                     "type": "object"
                   },
+                  "influxdb": {
+                    "properties": {
+                      "profile": {
+                        "type": "string"
+                      },
+                      "query": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
                   "job": {
                     "properties": {
                       "metadata": {
@@ -3966,6 +3977,10 @@
                                           "format": "int32",
                                           "type": "integer"
                                         },
+                                        "minDomains": {
+                                          "format": "int32",
+                                          "type": "integer"
+                                        },
                                         "topologyKey": {
                                           "type": "string"
                                         },
@@ -4198,6 +4213,10 @@
                       },
                       "insecure": {
                         "type": "boolean"
+                      },
+                      "jsonBody": {
+                        "type": "object",
+                        "x-kubernetes-preserve-unknown-fields": true
                       },
                       "jsonPath": {
                         "type": "string"
