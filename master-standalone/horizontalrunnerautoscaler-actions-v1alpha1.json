@@ -38,6 +38,22 @@
           },
           "type": "array"
         },
+        "githubAPICredentialsFrom": {
+          "properties": {
+            "secretRef": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
         "maxReplicas": {
           "description": "MaxReplicas is the maximum number of replicas the deployment is allowed to scale",
           "type": "integer"
@@ -78,7 +94,7 @@
                 "type": "string"
               },
               "type": {
-                "description": "Type is the type of metric to be used for autoscaling. The only supported Type is TotalNumberOfQueuedAndInProgressWorkflowRuns",
+                "description": "Type is the type of metric to be used for autoscaling. It can be TotalNumberOfQueuedAndInProgressWorkflowRuns or PercentageRunnersBusy.",
                 "type": "string"
               }
             },
@@ -95,7 +111,7 @@
           "type": "integer"
         },
         "scaleTargetRef": {
-          "description": "ScaleTargetRef sis the reference to scaled resource like RunnerDeployment",
+          "description": "ScaleTargetRef is the reference to scaled resource like RunnerDeployment",
           "properties": {
             "kind": {
               "description": "Kind is the type of resource being referenced",
@@ -145,6 +161,7 @@
                         "type": "string"
                       },
                       "types": {
+                        "description": "One of: created, rerequested, or completed",
                         "items": {
                           "type": "string"
                         },
@@ -174,6 +191,10 @@
                   "push": {
                     "description": "PushSpec is the condition for triggering scale-up on push event Also see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push",
                     "type": "object"
+                  },
+                  "workflowJob": {
+                    "description": "https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job",
+                    "type": "object"
                   }
                 },
                 "type": "object"
@@ -186,7 +207,7 @@
         "scheduledOverrides": {
           "description": "ScheduledOverrides is the list of ScheduledOverride. It can be used to override a few fields of HorizontalRunnerAutoscalerSpec on schedule. The earlier a scheduled override is, the higher it is prioritized.",
           "items": {
-            "description": "ScheduledOverride can be used to override a few fields of HorizontalRunnerAutoscalerSpec on schedule. A schedule can optionally be recurring, so that the correspoding override happens every day, week, month, or year.",
+            "description": "ScheduledOverride can be used to override a few fields of HorizontalRunnerAutoscalerSpec on schedule. A schedule can optionally be recurring, so that the corresponding override happens every day, week, month, or year.",
             "properties": {
               "endTime": {
                 "description": "EndTime is the time at which the first override ends.",
