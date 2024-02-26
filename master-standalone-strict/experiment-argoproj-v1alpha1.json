@@ -174,9 +174,15 @@
                     "type": "object"
                   }
                 },
-                "type": "object"
+                "type": "object",
+                "x-kubernetes-map-type": "atomic"
               },
               "service": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
                 "type": "object"
               },
               "template": {
@@ -262,7 +268,8 @@
                                           "type": "array"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "weight": {
                                       "format": "int32",
@@ -331,7 +338,8 @@
                                           "type": "array"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "type": "array"
                                   }
@@ -339,7 +347,8 @@
                                 "required": [
                                   "nodeSelectorTerms"
                                 ],
-                                "type": "object"
+                                "type": "object",
+                                "x-kubernetes-map-type": "atomic"
                               }
                             },
                             "type": "object"
@@ -384,7 +393,8 @@
                                               "type": "object"
                                             }
                                           },
-                                          "type": "object"
+                                          "type": "object",
+                                          "x-kubernetes-map-type": "atomic"
                                         },
                                         "namespaceSelector": {
                                           "properties": {
@@ -419,7 +429,8 @@
                                               "type": "object"
                                             }
                                           },
-                                          "type": "object"
+                                          "type": "object",
+                                          "x-kubernetes-map-type": "atomic"
                                         },
                                         "namespaces": {
                                           "items": {
@@ -485,7 +496,8 @@
                                           "type": "object"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "namespaceSelector": {
                                       "properties": {
@@ -520,7 +532,8 @@
                                           "type": "object"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "namespaces": {
                                       "items": {
@@ -582,7 +595,8 @@
                                               "type": "object"
                                             }
                                           },
-                                          "type": "object"
+                                          "type": "object",
+                                          "x-kubernetes-map-type": "atomic"
                                         },
                                         "namespaceSelector": {
                                           "properties": {
@@ -617,7 +631,8 @@
                                               "type": "object"
                                             }
                                           },
-                                          "type": "object"
+                                          "type": "object",
+                                          "x-kubernetes-map-type": "atomic"
                                         },
                                         "namespaces": {
                                           "items": {
@@ -683,7 +698,8 @@
                                           "type": "object"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "namespaceSelector": {
                                       "properties": {
@@ -718,7 +734,8 @@
                                           "type": "object"
                                         }
                                       },
-                                      "type": "object"
+                                      "type": "object",
+                                      "x-kubernetes-map-type": "atomic"
                                     },
                                     "namespaces": {
                                       "items": {
@@ -787,7 +804,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "fieldRef": {
                                         "properties": {
@@ -801,7 +819,8 @@
                                         "required": [
                                           "fieldPath"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "resourceFieldRef": {
                                         "properties": {
@@ -827,7 +846,8 @@
                                         "required": [
                                           "resource"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "secretKeyRef": {
                                         "properties": {
@@ -844,7 +864,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       }
                                     },
                                     "type": "object"
@@ -869,7 +890,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "prefix": {
                                     "type": "string"
@@ -883,7 +905,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   }
                                 },
                                 "type": "object"
@@ -1731,7 +1754,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "fieldRef": {
                                         "properties": {
@@ -1745,7 +1769,8 @@
                                         "required": [
                                           "fieldPath"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "resourceFieldRef": {
                                         "properties": {
@@ -1771,7 +1796,8 @@
                                         "required": [
                                           "resource"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "secretKeyRef": {
                                         "properties": {
@@ -1788,7 +1814,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       }
                                     },
                                     "type": "object"
@@ -1813,7 +1840,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "prefix": {
                                     "type": "string"
@@ -1827,7 +1855,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   }
                                 },
                                 "type": "object"
@@ -2626,6 +2655,9 @@
                       "hostPID": {
                         "type": "boolean"
                       },
+                      "hostUsers": {
+                        "type": "boolean"
+                      },
                       "hostname": {
                         "type": "string"
                       },
@@ -2636,7 +2668,8 @@
                               "type": "string"
                             }
                           },
-                          "type": "object"
+                          "type": "object",
+                          "x-kubernetes-map-type": "atomic"
                         },
                         "type": "array"
                       },
@@ -2681,7 +2714,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "fieldRef": {
                                         "properties": {
@@ -2695,7 +2729,8 @@
                                         "required": [
                                           "fieldPath"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "resourceFieldRef": {
                                         "properties": {
@@ -2721,7 +2756,8 @@
                                         "required": [
                                           "resource"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       },
                                       "secretKeyRef": {
                                         "properties": {
@@ -2738,7 +2774,8 @@
                                         "required": [
                                           "key"
                                         ],
-                                        "type": "object"
+                                        "type": "object",
+                                        "x-kubernetes-map-type": "atomic"
                                       }
                                     },
                                     "type": "object"
@@ -2763,7 +2800,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "prefix": {
                                     "type": "string"
@@ -2777,7 +2815,8 @@
                                         "type": "boolean"
                                       }
                                     },
-                                    "type": "object"
+                                    "type": "object",
+                                    "x-kubernetes-map-type": "atomic"
                                   }
                                 },
                                 "type": "object"
@@ -3791,7 +3830,15 @@
                                   "type": "object"
                                 }
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
+                            },
+                            "matchLabelKeys": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
                             },
                             "maxSkew": {
                               "format": "int32",
@@ -3800,6 +3847,12 @@
                             "minDomains": {
                               "format": "int32",
                               "type": "integer"
+                            },
+                            "nodeAffinityPolicy": {
+                              "type": "string"
+                            },
+                            "nodeTaintsPolicy": {
+                              "type": "string"
                             },
                             "topologyKey": {
                               "type": "string"

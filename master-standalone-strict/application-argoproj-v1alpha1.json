@@ -284,8 +284,13 @@
                       "type": "array"
                     },
                     "values": {
-                      "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                      "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                       "type": "string"
+                    },
+                    "valuesObject": {
+                      "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
                     },
                     "version": {
                       "description": "Version is the Helm version to use for templating (\"3\")",
@@ -304,12 +309,23 @@
                       "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                       "type": "object"
                     },
+                    "commonAnnotationsEnvsubst": {
+                      "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                      "type": "boolean"
+                    },
                     "commonLabels": {
                       "additionalProperties": {
                         "type": "string"
                       },
                       "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                       "type": "object"
+                    },
+                    "components": {
+                      "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
                     },
                     "forceCommonAnnotations": {
                       "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -338,6 +354,82 @@
                     "namespace": {
                       "description": "Namespace sets the namespace that Kustomize adds to all resources",
                       "type": "string"
+                    },
+                    "patches": {
+                      "description": "Patches is a list of Kustomize patches",
+                      "items": {
+                        "properties": {
+                          "options": {
+                            "additionalProperties": {
+                              "type": "boolean"
+                            },
+                            "type": "object"
+                          },
+                          "patch": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "properties": {
+                              "annotationSelector": {
+                                "type": "string"
+                              },
+                              "group": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string"
+                              },
+                              "labelSelector": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "replicas": {
+                      "description": "Replicas is a list of Kustomize Replicas override specifications",
+                      "items": {
+                        "properties": {
+                          "count": {
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "description": "Number of replicas",
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "name": {
+                            "description": "Name of Deployment or StatefulSet",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "count",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
                     },
                     "version": {
                       "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -582,8 +674,13 @@
                         "type": "array"
                       },
                       "values": {
-                        "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                        "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                         "type": "string"
+                      },
+                      "valuesObject": {
+                        "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                        "type": "object",
+                        "x-kubernetes-preserve-unknown-fields": true
                       },
                       "version": {
                         "description": "Version is the Helm version to use for templating (\"3\")",
@@ -602,12 +699,23 @@
                         "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                         "type": "object"
                       },
+                      "commonAnnotationsEnvsubst": {
+                        "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                        "type": "boolean"
+                      },
                       "commonLabels": {
                         "additionalProperties": {
                           "type": "string"
                         },
                         "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                         "type": "object"
+                      },
+                      "components": {
+                        "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
                       },
                       "forceCommonAnnotations": {
                         "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -636,6 +744,82 @@
                       "namespace": {
                         "description": "Namespace sets the namespace that Kustomize adds to all resources",
                         "type": "string"
+                      },
+                      "patches": {
+                        "description": "Patches is a list of Kustomize patches",
+                        "items": {
+                          "properties": {
+                            "options": {
+                              "additionalProperties": {
+                                "type": "boolean"
+                              },
+                              "type": "object"
+                            },
+                            "patch": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            },
+                            "target": {
+                              "properties": {
+                                "annotationSelector": {
+                                  "type": "string"
+                                },
+                                "group": {
+                                  "type": "string"
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "labelSelector": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "namespace": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "replicas": {
+                        "description": "Replicas is a list of Kustomize Replicas override specifications",
+                        "items": {
+                          "properties": {
+                            "count": {
+                              "anyOf": [
+                                {
+                                  "type": "integer"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Number of replicas",
+                              "x-kubernetes-int-or-string": true
+                            },
+                            "name": {
+                              "description": "Name of Deployment or StatefulSet",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "count",
+                            "name"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
                       },
                       "version": {
                         "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -775,7 +959,7 @@
           "description": "Destination is a reference to the target Kubernetes server and namespace",
           "properties": {
             "name": {
-              "description": "Name is an alternate way of specifying the target cluster by its symbolic name",
+              "description": "Name is an alternate way of specifying the target cluster by its symbolic name. This must be set if Server is not set.",
               "type": "string"
             },
             "namespace": {
@@ -783,7 +967,7 @@
               "type": "string"
             },
             "server": {
-              "description": "Server specifies the URL of the target cluster and must be set to the Kubernetes control plane API",
+              "description": "Server specifies the URL of the target cluster's Kubernetes control plane API. This must be set if Name is not set.",
               "type": "string"
             }
           },
@@ -1015,8 +1199,13 @@
                   "type": "array"
                 },
                 "values": {
-                  "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                  "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                   "type": "string"
+                },
+                "valuesObject": {
+                  "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                  "type": "object",
+                  "x-kubernetes-preserve-unknown-fields": true
                 },
                 "version": {
                   "description": "Version is the Helm version to use for templating (\"3\")",
@@ -1036,12 +1225,23 @@
                   "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                   "type": "object"
                 },
+                "commonAnnotationsEnvsubst": {
+                  "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                  "type": "boolean"
+                },
                 "commonLabels": {
                   "additionalProperties": {
                     "type": "string"
                   },
                   "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                   "type": "object"
+                },
+                "components": {
+                  "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
                 },
                 "forceCommonAnnotations": {
                   "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -1070,6 +1270,82 @@
                 "namespace": {
                   "description": "Namespace sets the namespace that Kustomize adds to all resources",
                   "type": "string"
+                },
+                "patches": {
+                  "description": "Patches is a list of Kustomize patches",
+                  "items": {
+                    "properties": {
+                      "options": {
+                        "additionalProperties": {
+                          "type": "boolean"
+                        },
+                        "type": "object"
+                      },
+                      "patch": {
+                        "type": "string"
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "target": {
+                        "properties": {
+                          "annotationSelector": {
+                            "type": "string"
+                          },
+                          "group": {
+                            "type": "string"
+                          },
+                          "kind": {
+                            "type": "string"
+                          },
+                          "labelSelector": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "replicas": {
+                  "description": "Replicas is a list of Kustomize Replicas override specifications",
+                  "items": {
+                    "properties": {
+                      "count": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "description": "Number of replicas",
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "name": {
+                        "description": "Name of Deployment or StatefulSet",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "version": {
                   "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -1317,8 +1593,13 @@
                     "type": "array"
                   },
                   "values": {
-                    "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                    "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                     "type": "string"
+                  },
+                  "valuesObject": {
+                    "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
                   },
                   "version": {
                     "description": "Version is the Helm version to use for templating (\"3\")",
@@ -1337,12 +1618,23 @@
                     "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                     "type": "object"
                   },
+                  "commonAnnotationsEnvsubst": {
+                    "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                    "type": "boolean"
+                  },
                   "commonLabels": {
                     "additionalProperties": {
                       "type": "string"
                     },
                     "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                     "type": "object"
+                  },
+                  "components": {
+                    "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
                   },
                   "forceCommonAnnotations": {
                     "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -1371,6 +1663,82 @@
                   "namespace": {
                     "description": "Namespace sets the namespace that Kustomize adds to all resources",
                     "type": "string"
+                  },
+                  "patches": {
+                    "description": "Patches is a list of Kustomize patches",
+                    "items": {
+                      "properties": {
+                        "options": {
+                          "additionalProperties": {
+                            "type": "boolean"
+                          },
+                          "type": "object"
+                        },
+                        "patch": {
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        },
+                        "target": {
+                          "properties": {
+                            "annotationSelector": {
+                              "type": "string"
+                            },
+                            "group": {
+                              "type": "string"
+                            },
+                            "kind": {
+                              "type": "string"
+                            },
+                            "labelSelector": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "replicas": {
+                    "description": "Replicas is a list of Kustomize Replicas override specifications",
+                    "items": {
+                      "properties": {
+                        "count": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "description": "Number of replicas",
+                          "x-kubernetes-int-or-string": true
+                        },
+                        "name": {
+                          "description": "Name of Deployment or StatefulSet",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "count",
+                        "name"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   "version": {
                     "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -1479,7 +1847,7 @@
                   "type": "boolean"
                 },
                 "selfHeal": {
-                  "description": "SelfHeal specifes whether to revert resources back to their desired state upon modification in the cluster (default: false)",
+                  "description": "SelfHeal specifies whether to revert resources back to their desired state upon modification in the cluster (default: false)",
                   "type": "boolean"
                 }
               },
@@ -1562,7 +1930,7 @@
         "conditions": {
           "description": "Conditions is a list of currently observed application conditions",
           "items": {
-            "description": "ApplicationCondition contains details about an application condition, which is usally an error or warning",
+            "description": "ApplicationCondition contains details about an application condition, which is usually an error or warning",
             "properties": {
               "lastTransitionTime": {
                 "description": "LastTransitionTime is the time the condition was last observed",
@@ -1585,6 +1953,10 @@
             "type": "object"
           },
           "type": "array"
+        },
+        "controllerNamespace": {
+          "description": "ControllerNamespace indicates the namespace in which the application controller is located",
+          "type": "string"
         },
         "health": {
           "description": "Health contains information about the application's current health status",
@@ -1619,6 +1991,20 @@
                 "description": "ID is an auto incrementing identifier of the RevisionHistory",
                 "format": "int64",
                 "type": "integer"
+              },
+              "initiatedBy": {
+                "description": "InitiatedBy contains information about who initiated the operations",
+                "properties": {
+                  "automated": {
+                    "description": "Automated is set to true if operation was initiated automatically by the application controller.",
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "description": "Username contains the name of a user who started operation",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               },
               "revision": {
                 "description": "Revision holds the revision the sync was performed against",
@@ -1782,8 +2168,13 @@
                         "type": "array"
                       },
                       "values": {
-                        "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                        "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                         "type": "string"
+                      },
+                      "valuesObject": {
+                        "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                        "type": "object",
+                        "x-kubernetes-preserve-unknown-fields": true
                       },
                       "version": {
                         "description": "Version is the Helm version to use for templating (\"3\")",
@@ -1802,12 +2193,23 @@
                         "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                         "type": "object"
                       },
+                      "commonAnnotationsEnvsubst": {
+                        "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                        "type": "boolean"
+                      },
                       "commonLabels": {
                         "additionalProperties": {
                           "type": "string"
                         },
                         "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                         "type": "object"
+                      },
+                      "components": {
+                        "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
                       },
                       "forceCommonAnnotations": {
                         "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -1836,6 +2238,82 @@
                       "namespace": {
                         "description": "Namespace sets the namespace that Kustomize adds to all resources",
                         "type": "string"
+                      },
+                      "patches": {
+                        "description": "Patches is a list of Kustomize patches",
+                        "items": {
+                          "properties": {
+                            "options": {
+                              "additionalProperties": {
+                                "type": "boolean"
+                              },
+                              "type": "object"
+                            },
+                            "patch": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            },
+                            "target": {
+                              "properties": {
+                                "annotationSelector": {
+                                  "type": "string"
+                                },
+                                "group": {
+                                  "type": "string"
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "labelSelector": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "namespace": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "replicas": {
+                        "description": "Replicas is a list of Kustomize Replicas override specifications",
+                        "items": {
+                          "properties": {
+                            "count": {
+                              "anyOf": [
+                                {
+                                  "type": "integer"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ],
+                              "description": "Number of replicas",
+                              "x-kubernetes-int-or-string": true
+                            },
+                            "name": {
+                              "description": "Name of Deployment or StatefulSet",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "count",
+                            "name"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
                       },
                       "version": {
                         "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -2080,8 +2558,13 @@
                           "type": "array"
                         },
                         "values": {
-                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                           "type": "string"
+                        },
+                        "valuesObject": {
+                          "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                          "type": "object",
+                          "x-kubernetes-preserve-unknown-fields": true
                         },
                         "version": {
                           "description": "Version is the Helm version to use for templating (\"3\")",
@@ -2100,12 +2583,23 @@
                           "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                           "type": "object"
                         },
+                        "commonAnnotationsEnvsubst": {
+                          "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                          "type": "boolean"
+                        },
                         "commonLabels": {
                           "additionalProperties": {
                             "type": "string"
                           },
                           "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                           "type": "object"
+                        },
+                        "components": {
+                          "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
                         },
                         "forceCommonAnnotations": {
                           "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -2134,6 +2628,82 @@
                         "namespace": {
                           "description": "Namespace sets the namespace that Kustomize adds to all resources",
                           "type": "string"
+                        },
+                        "patches": {
+                          "description": "Patches is a list of Kustomize patches",
+                          "items": {
+                            "properties": {
+                              "options": {
+                                "additionalProperties": {
+                                  "type": "boolean"
+                                },
+                                "type": "object"
+                              },
+                              "patch": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "annotationSelector": {
+                                    "type": "string"
+                                  },
+                                  "group": {
+                                    "type": "string"
+                                  },
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "labelSelector": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
+                                  },
+                                  "version": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "replicas": {
+                          "description": "Replicas is a list of Kustomize Replicas override specifications",
+                          "items": {
+                            "properties": {
+                              "count": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "description": "Number of replicas",
+                                "x-kubernetes-int-or-string": true
+                              },
+                              "name": {
+                                "description": "Name of Deployment or StatefulSet",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "count",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
                         },
                         "version": {
                           "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -2525,8 +3095,13 @@
                               "type": "array"
                             },
                             "values": {
-                              "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                              "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                               "type": "string"
+                            },
+                            "valuesObject": {
+                              "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                              "type": "object",
+                              "x-kubernetes-preserve-unknown-fields": true
                             },
                             "version": {
                               "description": "Version is the Helm version to use for templating (\"3\")",
@@ -2545,12 +3120,23 @@
                               "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                               "type": "object"
                             },
+                            "commonAnnotationsEnvsubst": {
+                              "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                              "type": "boolean"
+                            },
                             "commonLabels": {
                               "additionalProperties": {
                                 "type": "string"
                               },
                               "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                               "type": "object"
+                            },
+                            "components": {
+                              "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
                             },
                             "forceCommonAnnotations": {
                               "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -2579,6 +3165,82 @@
                             "namespace": {
                               "description": "Namespace sets the namespace that Kustomize adds to all resources",
                               "type": "string"
+                            },
+                            "patches": {
+                              "description": "Patches is a list of Kustomize patches",
+                              "items": {
+                                "properties": {
+                                  "options": {
+                                    "additionalProperties": {
+                                      "type": "boolean"
+                                    },
+                                    "type": "object"
+                                  },
+                                  "patch": {
+                                    "type": "string"
+                                  },
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "target": {
+                                    "properties": {
+                                      "annotationSelector": {
+                                        "type": "string"
+                                      },
+                                      "group": {
+                                        "type": "string"
+                                      },
+                                      "kind": {
+                                        "type": "string"
+                                      },
+                                      "labelSelector": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "namespace": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "replicas": {
+                              "description": "Replicas is a list of Kustomize Replicas override specifications",
+                              "items": {
+                                "properties": {
+                                  "count": {
+                                    "anyOf": [
+                                      {
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "description": "Number of replicas",
+                                    "x-kubernetes-int-or-string": true
+                                  },
+                                  "name": {
+                                    "description": "Name of Deployment or StatefulSet",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "count",
+                                  "name"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
                             },
                             "version": {
                               "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -2823,8 +3485,13 @@
                                 "type": "array"
                               },
                               "values": {
-                                "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                                "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                                 "type": "string"
+                              },
+                              "valuesObject": {
+                                "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
                               },
                               "version": {
                                 "description": "Version is the Helm version to use for templating (\"3\")",
@@ -2843,12 +3510,23 @@
                                 "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                                 "type": "object"
                               },
+                              "commonAnnotationsEnvsubst": {
+                                "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                                "type": "boolean"
+                              },
                               "commonLabels": {
                                 "additionalProperties": {
                                   "type": "string"
                                 },
                                 "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                                 "type": "object"
+                              },
+                              "components": {
+                                "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
                               },
                               "forceCommonAnnotations": {
                                 "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -2877,6 +3555,82 @@
                               "namespace": {
                                 "description": "Namespace sets the namespace that Kustomize adds to all resources",
                                 "type": "string"
+                              },
+                              "patches": {
+                                "description": "Patches is a list of Kustomize patches",
+                                "items": {
+                                  "properties": {
+                                    "options": {
+                                      "additionalProperties": {
+                                        "type": "boolean"
+                                      },
+                                      "type": "object"
+                                    },
+                                    "patch": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "properties": {
+                                        "annotationSelector": {
+                                          "type": "string"
+                                        },
+                                        "group": {
+                                          "type": "string"
+                                        },
+                                        "kind": {
+                                          "type": "string"
+                                        },
+                                        "labelSelector": {
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "namespace": {
+                                          "type": "string"
+                                        },
+                                        "version": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "type": "object"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "replicas": {
+                                "description": "Replicas is a list of Kustomize Replicas override specifications",
+                                "items": {
+                                  "properties": {
+                                    "count": {
+                                      "anyOf": [
+                                        {
+                                          "type": "integer"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "description": "Number of replicas",
+                                      "x-kubernetes-int-or-string": true
+                                    },
+                                    "name": {
+                                      "description": "Name of Deployment or StatefulSet",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "count",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
                               },
                               "version": {
                                 "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -3026,6 +3780,24 @@
             "syncResult": {
               "description": "SyncResult is the result of a Sync operation",
               "properties": {
+                "managedNamespaceMetadata": {
+                  "description": "ManagedNamespaceMetadata contains the current sync state of managed namespace metadata",
+                  "properties": {
+                    "annotations": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "labels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
                 "resources": {
                   "description": "Resources contains a list of sync result items for each individual resource in a sync operation",
                   "items": {
@@ -3245,8 +4017,13 @@
                           "type": "array"
                         },
                         "values": {
-                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                           "type": "string"
+                        },
+                        "valuesObject": {
+                          "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                          "type": "object",
+                          "x-kubernetes-preserve-unknown-fields": true
                         },
                         "version": {
                           "description": "Version is the Helm version to use for templating (\"3\")",
@@ -3265,12 +4042,23 @@
                           "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                           "type": "object"
                         },
+                        "commonAnnotationsEnvsubst": {
+                          "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                          "type": "boolean"
+                        },
                         "commonLabels": {
                           "additionalProperties": {
                             "type": "string"
                           },
                           "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                           "type": "object"
+                        },
+                        "components": {
+                          "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
                         },
                         "forceCommonAnnotations": {
                           "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -3299,6 +4087,82 @@
                         "namespace": {
                           "description": "Namespace sets the namespace that Kustomize adds to all resources",
                           "type": "string"
+                        },
+                        "patches": {
+                          "description": "Patches is a list of Kustomize patches",
+                          "items": {
+                            "properties": {
+                              "options": {
+                                "additionalProperties": {
+                                  "type": "boolean"
+                                },
+                                "type": "object"
+                              },
+                              "patch": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "annotationSelector": {
+                                    "type": "string"
+                                  },
+                                  "group": {
+                                    "type": "string"
+                                  },
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "labelSelector": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
+                                  },
+                                  "version": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "replicas": {
+                          "description": "Replicas is a list of Kustomize Replicas override specifications",
+                          "items": {
+                            "properties": {
+                              "count": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "description": "Number of replicas",
+                                "x-kubernetes-int-or-string": true
+                              },
+                              "name": {
+                                "description": "Name of Deployment or StatefulSet",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "count",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
                         },
                         "version": {
                           "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -3543,8 +4407,13 @@
                             "type": "array"
                           },
                           "values": {
-                            "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                            "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                             "type": "string"
+                          },
+                          "valuesObject": {
+                            "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                            "type": "object",
+                            "x-kubernetes-preserve-unknown-fields": true
                           },
                           "version": {
                             "description": "Version is the Helm version to use for templating (\"3\")",
@@ -3563,12 +4432,23 @@
                             "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                             "type": "object"
                           },
+                          "commonAnnotationsEnvsubst": {
+                            "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                            "type": "boolean"
+                          },
                           "commonLabels": {
                             "additionalProperties": {
                               "type": "string"
                             },
                             "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                             "type": "object"
+                          },
+                          "components": {
+                            "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
                           },
                           "forceCommonAnnotations": {
                             "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -3597,6 +4477,82 @@
                           "namespace": {
                             "description": "Namespace sets the namespace that Kustomize adds to all resources",
                             "type": "string"
+                          },
+                          "patches": {
+                            "description": "Patches is a list of Kustomize patches",
+                            "items": {
+                              "properties": {
+                                "options": {
+                                  "additionalProperties": {
+                                    "type": "boolean"
+                                  },
+                                  "type": "object"
+                                },
+                                "patch": {
+                                  "type": "string"
+                                },
+                                "path": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "properties": {
+                                    "annotationSelector": {
+                                      "type": "string"
+                                    },
+                                    "group": {
+                                      "type": "string"
+                                    },
+                                    "kind": {
+                                      "type": "string"
+                                    },
+                                    "labelSelector": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "replicas": {
+                            "description": "Replicas is a list of Kustomize Replicas override specifications",
+                            "items": {
+                              "properties": {
+                                "count": {
+                                  "anyOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "description": "Number of replicas",
+                                  "x-kubernetes-int-or-string": true
+                                },
+                                "name": {
+                                  "description": "Name of Deployment or StatefulSet",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "count",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
                           },
                           "version": {
                             "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -3808,7 +4764,7 @@
                   "description": "Destination is a reference to the application's destination used for comparison",
                   "properties": {
                     "name": {
-                      "description": "Name is an alternate way of specifying the target cluster by its symbolic name",
+                      "description": "Name is an alternate way of specifying the target cluster by its symbolic name. This must be set if Server is not set.",
                       "type": "string"
                     },
                     "namespace": {
@@ -3816,11 +4772,55 @@
                       "type": "string"
                     },
                     "server": {
-                      "description": "Server specifies the URL of the target cluster and must be set to the Kubernetes control plane API",
+                      "description": "Server specifies the URL of the target cluster's Kubernetes control plane API. This must be set if Name is not set.",
                       "type": "string"
                     }
                   },
                   "type": "object"
+                },
+                "ignoreDifferences": {
+                  "description": "IgnoreDifferences is a reference to the application's ignored differences used for comparison",
+                  "items": {
+                    "description": "ResourceIgnoreDifferences contains resource filter and list of json paths which should be ignored during comparison with live state.",
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "jqPathExpressions": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "jsonPointers": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "managedFieldsManagers": {
+                        "description": "ManagedFieldsManagers is a list of trusted managers. Fields mutated by those managers will take precedence over the desired state defined in the SCM and won't be displayed in diffs",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
                 },
                 "source": {
                   "description": "Source is a reference to the application's source used for comparison",
@@ -3973,8 +4973,13 @@
                           "type": "array"
                         },
                         "values": {
-                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                          "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                           "type": "string"
+                        },
+                        "valuesObject": {
+                          "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                          "type": "object",
+                          "x-kubernetes-preserve-unknown-fields": true
                         },
                         "version": {
                           "description": "Version is the Helm version to use for templating (\"3\")",
@@ -3993,12 +4998,23 @@
                           "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                           "type": "object"
                         },
+                        "commonAnnotationsEnvsubst": {
+                          "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                          "type": "boolean"
+                        },
                         "commonLabels": {
                           "additionalProperties": {
                             "type": "string"
                           },
                           "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                           "type": "object"
+                        },
+                        "components": {
+                          "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
                         },
                         "forceCommonAnnotations": {
                           "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -4027,6 +5043,82 @@
                         "namespace": {
                           "description": "Namespace sets the namespace that Kustomize adds to all resources",
                           "type": "string"
+                        },
+                        "patches": {
+                          "description": "Patches is a list of Kustomize patches",
+                          "items": {
+                            "properties": {
+                              "options": {
+                                "additionalProperties": {
+                                  "type": "boolean"
+                                },
+                                "type": "object"
+                              },
+                              "patch": {
+                                "type": "string"
+                              },
+                              "path": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "properties": {
+                                  "annotationSelector": {
+                                    "type": "string"
+                                  },
+                                  "group": {
+                                    "type": "string"
+                                  },
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "labelSelector": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
+                                  },
+                                  "version": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "replicas": {
+                          "description": "Replicas is a list of Kustomize Replicas override specifications",
+                          "items": {
+                            "properties": {
+                              "count": {
+                                "anyOf": [
+                                  {
+                                    "type": "integer"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "description": "Number of replicas",
+                                "x-kubernetes-int-or-string": true
+                              },
+                              "name": {
+                                "description": "Name of Deployment or StatefulSet",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "count",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
                         },
                         "version": {
                           "description": "Version controls which version of Kustomize to use for rendering manifests",
@@ -4271,8 +5363,13 @@
                             "type": "array"
                           },
                           "values": {
-                            "description": "Values specifies Helm values to be passed to helm template, typically defined as a block",
+                            "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
                             "type": "string"
+                          },
+                          "valuesObject": {
+                            "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                            "type": "object",
+                            "x-kubernetes-preserve-unknown-fields": true
                           },
                           "version": {
                             "description": "Version is the Helm version to use for templating (\"3\")",
@@ -4291,12 +5388,23 @@
                             "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
                             "type": "object"
                           },
+                          "commonAnnotationsEnvsubst": {
+                            "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                            "type": "boolean"
+                          },
                           "commonLabels": {
                             "additionalProperties": {
                               "type": "string"
                             },
                             "description": "CommonLabels is a list of additional labels to add to rendered manifests",
                             "type": "object"
+                          },
+                          "components": {
+                            "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
                           },
                           "forceCommonAnnotations": {
                             "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
@@ -4325,6 +5433,82 @@
                           "namespace": {
                             "description": "Namespace sets the namespace that Kustomize adds to all resources",
                             "type": "string"
+                          },
+                          "patches": {
+                            "description": "Patches is a list of Kustomize patches",
+                            "items": {
+                              "properties": {
+                                "options": {
+                                  "additionalProperties": {
+                                    "type": "boolean"
+                                  },
+                                  "type": "object"
+                                },
+                                "patch": {
+                                  "type": "string"
+                                },
+                                "path": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "properties": {
+                                    "annotationSelector": {
+                                      "type": "string"
+                                    },
+                                    "group": {
+                                      "type": "string"
+                                    },
+                                    "kind": {
+                                      "type": "string"
+                                    },
+                                    "labelSelector": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "replicas": {
+                            "description": "Replicas is a list of Kustomize Replicas override specifications",
+                            "items": {
+                              "properties": {
+                                "count": {
+                                  "anyOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "description": "Number of replicas",
+                                  "x-kubernetes-int-or-string": true
+                                },
+                                "name": {
+                                  "description": "Name of Deployment or StatefulSet",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "count",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
                           },
                           "version": {
                             "description": "Version controls which version of Kustomize to use for rendering manifests",
