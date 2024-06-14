@@ -61,3 +61,6 @@ crd_to_json_schema karpenter-node-templates https://raw.githubusercontent.com/aw
 crd_to_json_schema karpenter-node-pools https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.sh_nodepools.yaml
 crd_to_json_schema karpenter-node-claims https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.sh_nodeclaims.yaml
 crd_to_json_schema karpenter-ec2-node-classes https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.k8s.aws_ec2nodeclasses.yaml
+crd_to_json_schema crossplane-functions https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_functions.yaml
+crd_to_json_schema crossplane-providers https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_providers.yaml
+crd_to_json_schema crossplane-deploymentruntimeconfigs https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_deploymentruntimeconfigs.yaml
