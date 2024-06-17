@@ -55,7 +55,8 @@
                         "type": "object"
                       }
                     },
-                    "type": "object"
+                    "type": "object",
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "name": {
                     "type": "string"
@@ -348,6 +349,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -676,6 +680,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -963,7 +970,8 @@
                         "type": "object"
                       }
                     },
-                    "type": "object"
+                    "type": "object",
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "template": {
                     "properties": {
@@ -1248,6 +1256,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
                                   },
                                   "namePrefix": {
                                     "type": "string"
@@ -1577,6 +1588,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -2156,6 +2170,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -2484,6 +2501,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -3032,6 +3052,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -3361,6 +3384,9 @@
                                       },
                                       "type": "array"
                                     },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
+                                    },
                                     "namePrefix": {
                                       "type": "string"
                                     },
@@ -3601,9 +3627,6 @@
                     "type": "object"
                   }
                 },
-                "required": [
-                  "elements"
-                ],
                 "type": "object"
               },
               "matrix": {
@@ -3649,7 +3672,8 @@
                                   "type": "object"
                                 }
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "name": {
                               "type": "string"
@@ -3942,6 +3966,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -4270,6 +4297,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -4557,7 +4587,8 @@
                                   "type": "object"
                                 }
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "template": {
                               "properties": {
@@ -4842,6 +4873,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
                                             },
                                             "namePrefix": {
                                               "type": "string"
@@ -5171,6 +5205,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -5750,6 +5787,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -6078,6 +6118,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -6626,6 +6669,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -6955,6 +7001,9 @@
                                                 },
                                                 "type": "array"
                                               },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
+                                              },
                                               "namePrefix": {
                                                 "type": "string"
                                               },
@@ -7195,9 +7244,6 @@
                               "type": "object"
                             }
                           },
-                          "required": [
-                            "elements"
-                          ],
                           "type": "object"
                         },
                         "matrix": {
@@ -7518,6 +7564,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -7846,6 +7895,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -8679,6 +8731,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -9007,6 +9062,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -9834,6 +9892,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -10163,6 +10224,9 @@
                                                 },
                                                 "type": "array"
                                               },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
+                                              },
                                               "namePrefix": {
                                                 "type": "string"
                                               },
@@ -10444,7 +10508,8 @@
                               "type": "object"
                             }
                           },
-                          "type": "object"
+                          "type": "object",
+                          "x-kubernetes-map-type": "atomic"
                         }
                       },
                       "type": "object"
@@ -10735,6 +10800,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -11064,6 +11132,9 @@
                                       },
                                       "type": "array"
                                     },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
+                                    },
                                     "namePrefix": {
                                       "type": "string"
                                     },
@@ -11352,7 +11423,8 @@
                                   "type": "object"
                                 }
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "name": {
                               "type": "string"
@@ -11645,6 +11717,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -11973,6 +12048,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -12260,7 +12338,8 @@
                                   "type": "object"
                                 }
                               },
-                              "type": "object"
+                              "type": "object",
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "template": {
                               "properties": {
@@ -12545,6 +12624,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
                                             },
                                             "namePrefix": {
                                               "type": "string"
@@ -12874,6 +12956,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -13453,6 +13538,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -13781,6 +13869,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -14329,6 +14420,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -14658,6 +14752,9 @@
                                                 },
                                                 "type": "array"
                                               },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
+                                              },
                                               "namePrefix": {
                                                 "type": "string"
                                               },
@@ -14898,9 +14995,6 @@
                               "type": "object"
                             }
                           },
-                          "required": [
-                            "elements"
-                          ],
                           "type": "object"
                         },
                         "matrix": {
@@ -15221,6 +15315,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -15549,6 +15646,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -16382,6 +16482,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -16710,6 +16813,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
                                               },
                                               "namePrefix": {
                                                 "type": "string"
@@ -17537,6 +17643,9 @@
                                               },
                                               "type": "array"
                                             },
+                                            "labelWithoutSelector": {
+                                              "type": "boolean"
+                                            },
                                             "namePrefix": {
                                               "type": "string"
                                             },
@@ -17866,6 +17975,9 @@
                                                 },
                                                 "type": "array"
                                               },
+                                              "labelWithoutSelector": {
+                                                "type": "boolean"
+                                              },
                                               "namePrefix": {
                                                 "type": "string"
                                               },
@@ -18147,7 +18259,8 @@
                               "type": "object"
                             }
                           },
-                          "type": "object"
+                          "type": "object",
+                          "x-kubernetes-map-type": "atomic"
                         }
                       },
                       "type": "object"
@@ -18444,6 +18557,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -18772,6 +18888,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -19331,6 +19450,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -19659,6 +19781,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -20492,6 +20617,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -20820,6 +20948,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
                                     },
                                     "namePrefix": {
                                       "type": "string"
@@ -21647,6 +21778,9 @@
                                     },
                                     "type": "array"
                                   },
+                                  "labelWithoutSelector": {
+                                    "type": "boolean"
+                                  },
                                   "namePrefix": {
                                     "type": "string"
                                   },
@@ -21976,6 +22110,9 @@
                                       },
                                       "type": "array"
                                     },
+                                    "labelWithoutSelector": {
+                                      "type": "boolean"
+                                    },
                                     "namePrefix": {
                                       "type": "string"
                                     },
@@ -22257,7 +22394,8 @@
                     "type": "object"
                   }
                 },
-                "type": "object"
+                "type": "object",
+                "x-kubernetes-map-type": "atomic"
               }
             },
             "type": "object"
@@ -22675,6 +22813,9 @@
                           },
                           "type": "array"
                         },
+                        "labelWithoutSelector": {
+                          "type": "boolean"
+                        },
                         "namePrefix": {
                           "type": "string"
                         },
@@ -23007,6 +23148,9 @@
                             },
                             "type": "array"
                           },
+                          "labelWithoutSelector": {
+                            "type": "boolean"
+                          },
                           "namePrefix": {
                             "type": "string"
                           },
@@ -23284,13 +23428,20 @@
               },
               "step": {
                 "type": "string"
+              },
+              "targetRevisions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               }
             },
             "required": [
               "application",
               "message",
               "status",
-              "step"
+              "step",
+              "targetRevisions"
             ],
             "type": "object"
           },
@@ -23322,6 +23473,53 @@
               "status",
               "type"
             ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "resources": {
+          "items": {
+            "properties": {
+              "group": {
+                "type": "string"
+              },
+              "health": {
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "hook": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "requiresPruning": {
+                "type": "boolean"
+              },
+              "status": {
+                "type": "string"
+              },
+              "syncWave": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
             "type": "object"
           },
           "type": "array"

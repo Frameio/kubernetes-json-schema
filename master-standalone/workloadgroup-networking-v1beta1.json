@@ -1,6 +1,7 @@
 {
   "properties": {
     "spec": {
+      "description": "Describes a collection of workload instances. See more details at: https://istio.io/docs/reference/config/networking/workload-group.html",
       "properties": {
         "metadata": {
           "description": "Metadata that will be used for all corresponding `WorkloadEntries`.",
@@ -80,6 +81,7 @@
               "type": "integer"
             },
             "httpGet": {
+              "description": "`httpGet` is performed to a given endpoint and the status/able to connect determines health.",
               "properties": {
                 "host": {
                   "description": "Host name to connect to, defaults to the pod IP.",
@@ -106,12 +108,17 @@
                 },
                 "port": {
                   "description": "Port on which the endpoint lives.",
+                  "maximum": 4294967295,
+                  "minimum": 0,
                   "type": "integer"
                 },
                 "scheme": {
                   "type": "string"
                 }
               },
+              "required": [
+                "port"
+              ],
               "type": "object"
             },
             "initialDelaySeconds": {
@@ -136,9 +143,14 @@
                   "type": "string"
                 },
                 "port": {
+                  "maximum": 4294967295,
+                  "minimum": 0,
                   "type": "integer"
                 }
               },
+              "required": [
+                "port"
+              ],
               "type": "object"
             },
             "timeoutSeconds": {
@@ -153,6 +165,7 @@
           "description": "Template to be used for the generation of `WorkloadEntry` resources that belong to this `WorkloadGroup`.",
           "properties": {
             "address": {
+              "description": "Address associated with the network endpoint without the port.",
               "type": "string"
             },
             "labels": {
@@ -167,26 +180,35 @@
               "type": "string"
             },
             "network": {
+              "description": "Network enables Istio to group endpoints resident in the same L3 domain/network.",
               "type": "string"
             },
             "ports": {
               "additionalProperties": {
+                "maximum": 4294967295,
+                "minimum": 0,
                 "type": "integer"
               },
               "description": "Set of ports associated with the endpoint.",
               "type": "object"
             },
             "serviceAccount": {
+              "description": "The service account associated with the workload if a sidecar is present in the workload.",
               "type": "string"
             },
             "weight": {
               "description": "The load balancing weight associated with the endpoint.",
+              "maximum": 4294967295,
+              "minimum": 0,
               "type": "integer"
             }
           },
           "type": "object"
         }
       },
+      "required": [
+        "template"
+      ],
       "type": "object"
     },
     "status": {

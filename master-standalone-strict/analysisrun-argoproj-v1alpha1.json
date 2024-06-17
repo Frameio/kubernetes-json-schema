@@ -244,19 +244,46 @@
                   },
                   "datadog": {
                     "properties": {
+                      "aggregator": {
+                        "default": "last",
+                        "enum": [
+                          "avg",
+                          "min",
+                          "max",
+                          "sum",
+                          "last",
+                          "percentile",
+                          "mean",
+                          "l2norm",
+                          "area"
+                        ],
+                        "type": "string"
+                      },
                       "apiVersion": {
+                        "default": "v1",
+                        "enum": [
+                          "v1",
+                          "v2"
+                        ],
+                        "type": "string"
+                      },
+                      "formula": {
                         "type": "string"
                       },
                       "interval": {
+                        "default": "5m",
                         "type": "string"
+                      },
+                      "queries": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "type": "object"
                       },
                       "query": {
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "query"
-                    ],
                     "type": "object"
                   },
                   "graphite": {
@@ -310,6 +337,10 @@
                             "format": "int32",
                             "type": "integer"
                           },
+                          "backoffLimitPerIndex": {
+                            "format": "int32",
+                            "type": "integer"
+                          },
                           "completionMode": {
                             "type": "string"
                           },
@@ -319,6 +350,10 @@
                           },
                           "manualSelector": {
                             "type": "boolean"
+                          },
+                          "maxFailedIndexes": {
+                            "format": "int32",
+                            "type": "integer"
                           },
                           "parallelism": {
                             "format": "int32",
@@ -376,8 +411,7 @@
                                     }
                                   },
                                   "required": [
-                                    "action",
-                                    "onPodConditions"
+                                    "action"
                                   ],
                                   "type": "object"
                                 },
@@ -389,6 +423,9 @@
                               "rules"
                             ],
                             "type": "object"
+                          },
+                          "podReplacementPolicy": {
+                            "type": "string"
                           },
                           "selector": {
                             "properties": {
@@ -640,6 +677,20 @@
                                                       "type": "object",
                                                       "x-kubernetes-map-type": "atomic"
                                                     },
+                                                    "matchLabelKeys": {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array",
+                                                      "x-kubernetes-list-type": "atomic"
+                                                    },
+                                                    "mismatchLabelKeys": {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array",
+                                                      "x-kubernetes-list-type": "atomic"
+                                                    },
                                                     "namespaceSelector": {
                                                       "properties": {
                                                         "matchExpressions": {
@@ -742,6 +793,20 @@
                                                   },
                                                   "type": "object",
                                                   "x-kubernetes-map-type": "atomic"
+                                                },
+                                                "matchLabelKeys": {
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "array",
+                                                  "x-kubernetes-list-type": "atomic"
+                                                },
+                                                "mismatchLabelKeys": {
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "array",
+                                                  "x-kubernetes-list-type": "atomic"
                                                 },
                                                 "namespaceSelector": {
                                                   "properties": {
@@ -842,6 +907,20 @@
                                                       "type": "object",
                                                       "x-kubernetes-map-type": "atomic"
                                                     },
+                                                    "matchLabelKeys": {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array",
+                                                      "x-kubernetes-list-type": "atomic"
+                                                    },
+                                                    "mismatchLabelKeys": {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array",
+                                                      "x-kubernetes-list-type": "atomic"
+                                                    },
                                                     "namespaceSelector": {
                                                       "properties": {
                                                         "matchExpressions": {
@@ -944,6 +1023,20 @@
                                                   },
                                                   "type": "object",
                                                   "x-kubernetes-map-type": "atomic"
+                                                },
+                                                "matchLabelKeys": {
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "array",
+                                                  "x-kubernetes-list-type": "atomic"
+                                                },
+                                                "mismatchLabelKeys": {
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "array",
+                                                  "x-kubernetes-list-type": "atomic"
                                                 },
                                                 "namespaceSelector": {
                                                   "properties": {
@@ -1224,6 +1317,18 @@
                                                   ],
                                                   "type": "object"
                                                 },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
+                                                  ],
+                                                  "type": "object"
+                                                },
                                                 "tcpSocket": {
                                                   "properties": {
                                                     "host": {
@@ -1305,6 +1410,18 @@
                                                   },
                                                   "required": [
                                                     "port"
+                                                  ],
+                                                  "type": "object"
+                                                },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
                                                   ],
                                                   "type": "object"
                                                 },
@@ -1619,8 +1736,45 @@
                                           },
                                           "type": "object"
                                         },
+                                        "resizePolicy": {
+                                          "items": {
+                                            "properties": {
+                                              "resourceName": {
+                                                "type": "string"
+                                              },
+                                              "restartPolicy": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "resourceName",
+                                              "restartPolicy"
+                                            ],
+                                            "type": "object"
+                                          },
+                                          "type": "array",
+                                          "x-kubernetes-list-type": "atomic"
+                                        },
                                         "resources": {
                                           "properties": {
+                                            "claims": {
+                                              "items": {
+                                                "properties": {
+                                                  "name": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name"
+                                                ],
+                                                "type": "object"
+                                              },
+                                              "type": "array",
+                                              "x-kubernetes-list-map-keys": [
+                                                "name"
+                                              ],
+                                              "x-kubernetes-list-type": "map"
+                                            },
                                             "limits": {
                                               "x-kubernetes-preserve-unknown-fields": true
                                             },
@@ -1629,6 +1783,9 @@
                                             }
                                           },
                                           "type": "object"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
                                         },
                                         "securityContext": {
                                           "properties": {
@@ -2174,6 +2331,18 @@
                                                   ],
                                                   "type": "object"
                                                 },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
+                                                  ],
+                                                  "type": "object"
+                                                },
                                                 "tcpSocket": {
                                                   "properties": {
                                                     "host": {
@@ -2255,6 +2424,18 @@
                                                   },
                                                   "required": [
                                                     "port"
+                                                  ],
+                                                  "type": "object"
+                                                },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
                                                   ],
                                                   "type": "object"
                                                 },
@@ -2569,8 +2750,45 @@
                                           },
                                           "type": "object"
                                         },
+                                        "resizePolicy": {
+                                          "items": {
+                                            "properties": {
+                                              "resourceName": {
+                                                "type": "string"
+                                              },
+                                              "restartPolicy": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "resourceName",
+                                              "restartPolicy"
+                                            ],
+                                            "type": "object"
+                                          },
+                                          "type": "array",
+                                          "x-kubernetes-list-type": "atomic"
+                                        },
                                         "resources": {
                                           "properties": {
+                                            "claims": {
+                                              "items": {
+                                                "properties": {
+                                                  "name": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name"
+                                                ],
+                                                "type": "object"
+                                              },
+                                              "type": "array",
+                                              "x-kubernetes-list-map-keys": [
+                                                "name"
+                                              ],
+                                              "x-kubernetes-list-type": "map"
+                                            },
                                             "limits": {
                                               "x-kubernetes-preserve-unknown-fields": true
                                             },
@@ -2579,6 +2797,9 @@
                                             }
                                           },
                                           "type": "object"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
                                         },
                                         "securityContext": {
                                           "properties": {
@@ -3134,6 +3355,18 @@
                                                   ],
                                                   "type": "object"
                                                 },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
+                                                  ],
+                                                  "type": "object"
+                                                },
                                                 "tcpSocket": {
                                                   "properties": {
                                                     "host": {
@@ -3215,6 +3448,18 @@
                                                   },
                                                   "required": [
                                                     "port"
+                                                  ],
+                                                  "type": "object"
+                                                },
+                                                "sleep": {
+                                                  "properties": {
+                                                    "seconds": {
+                                                      "format": "int64",
+                                                      "type": "integer"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "seconds"
                                                   ],
                                                   "type": "object"
                                                 },
@@ -3529,8 +3774,45 @@
                                           },
                                           "type": "object"
                                         },
+                                        "resizePolicy": {
+                                          "items": {
+                                            "properties": {
+                                              "resourceName": {
+                                                "type": "string"
+                                              },
+                                              "restartPolicy": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "resourceName",
+                                              "restartPolicy"
+                                            ],
+                                            "type": "object"
+                                          },
+                                          "type": "array",
+                                          "x-kubernetes-list-type": "atomic"
+                                        },
                                         "resources": {
                                           "properties": {
+                                            "claims": {
+                                              "items": {
+                                                "properties": {
+                                                  "name": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name"
+                                                ],
+                                                "type": "object"
+                                              },
+                                              "type": "array",
+                                              "x-kubernetes-list-map-keys": [
+                                                "name"
+                                              ],
+                                              "x-kubernetes-list-type": "map"
+                                            },
                                             "limits": {
                                               "x-kubernetes-preserve-unknown-fields": true
                                             },
@@ -3539,6 +3821,9 @@
                                             }
                                           },
                                           "type": "object"
+                                        },
+                                        "restartPolicy": {
+                                          "type": "string"
                                         },
                                         "securityContext": {
                                           "properties": {
@@ -3890,6 +4175,35 @@
                                     },
                                     "type": "array"
                                   },
+                                  "resourceClaims": {
+                                    "items": {
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "source": {
+                                          "properties": {
+                                            "resourceClaimName": {
+                                              "type": "string"
+                                            },
+                                            "resourceClaimTemplateName": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "type": "object"
+                                        }
+                                      },
+                                      "required": [
+                                        "name"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-map-keys": [
+                                      "name"
+                                    ],
+                                    "x-kubernetes-list-type": "map"
+                                  },
                                   "restartPolicy": {
                                     "type": "string"
                                   },
@@ -3898,6 +4212,24 @@
                                   },
                                   "schedulerName": {
                                     "type": "string"
+                                  },
+                                  "schedulingGates": {
+                                    "items": {
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "name"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array",
+                                    "x-kubernetes-list-map-keys": [
+                                      "name"
+                                    ],
+                                    "x-kubernetes-list-type": "map"
                                   },
                                   "securityContext": {
                                     "properties": {
@@ -4294,6 +4626,26 @@
                       },
                       "authentication": {
                         "properties": {
+                          "oauth2": {
+                            "properties": {
+                              "clientId": {
+                                "type": "string"
+                              },
+                              "clientSecret": {
+                                "type": "string"
+                              },
+                              "scopes": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "tokenUrl": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
                           "sigv4": {
                             "properties": {
                               "profile": {
@@ -4369,6 +4721,45 @@
                   },
                   "web": {
                     "properties": {
+                      "authentication": {
+                        "properties": {
+                          "oauth2": {
+                            "properties": {
+                              "clientId": {
+                                "type": "string"
+                              },
+                              "clientSecret": {
+                                "type": "string"
+                              },
+                              "scopes": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "tokenUrl": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "sigv4": {
+                            "properties": {
+                              "profile": {
+                                "type": "string"
+                              },
+                              "region": {
+                                "type": "string"
+                              },
+                              "roleArn": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
                       "body": {
                         "type": "string"
                       },
@@ -4433,6 +4824,24 @@
         },
         "terminate": {
           "type": "boolean"
+        },
+        "ttlStrategy": {
+          "properties": {
+            "secondsAfterCompletion": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "secondsAfterFailure": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "secondsAfterSuccess": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
         }
       },
       "required": [
@@ -4443,6 +4852,10 @@
     },
     "status": {
       "properties": {
+        "completedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
         "dryRunSummary": {
           "properties": {
             "count": {
