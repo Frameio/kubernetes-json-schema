@@ -8318,6 +8318,24 @@
                                   ],
                                   "type": "object"
                                 },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
+                                },
+                                "insecure": {
+                                  "type": "boolean"
+                                },
                                 "project": {
                                   "type": "string"
                                 },
@@ -8429,6 +8447,21 @@
                               "properties": {
                                 "api": {
                                   "type": "string"
+                                },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
                                 },
                                 "insecure": {
                                   "type": "boolean"
@@ -9493,6 +9526,24 @@
                                   ],
                                   "type": "object"
                                 },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
+                                },
+                                "insecure": {
+                                  "type": "boolean"
+                                },
                                 "project": {
                                   "type": "string"
                                 }
@@ -9613,6 +9664,21 @@
                                 },
                                 "api": {
                                   "type": "string"
+                                },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
                                 },
                                 "group": {
                                   "type": "string"
@@ -16115,6 +16181,24 @@
                                   ],
                                   "type": "object"
                                 },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
+                                },
+                                "insecure": {
+                                  "type": "boolean"
+                                },
                                 "project": {
                                   "type": "string"
                                 },
@@ -16226,6 +16310,21 @@
                               "properties": {
                                 "api": {
                                   "type": "string"
+                                },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
                                 },
                                 "insecure": {
                                   "type": "boolean"
@@ -17290,6 +17389,24 @@
                                   ],
                                   "type": "object"
                                 },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
+                                },
+                                "insecure": {
+                                  "type": "boolean"
+                                },
                                 "project": {
                                   "type": "string"
                                 }
@@ -17410,6 +17527,21 @@
                                 },
                                 "api": {
                                   "type": "string"
+                                },
+                                "caRef": {
+                                  "properties": {
+                                    "configMapName": {
+                                      "type": "string"
+                                    },
+                                    "key": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "configMapName",
+                                    "key"
+                                  ],
+                                  "type": "object"
                                 },
                                 "group": {
                                   "type": "string"
@@ -20296,6 +20428,24 @@
                         ],
                         "type": "object"
                       },
+                      "caRef": {
+                        "properties": {
+                          "configMapName": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "configMapName",
+                          "key"
+                        ],
+                        "type": "object"
+                      },
+                      "insecure": {
+                        "type": "boolean"
+                      },
                       "project": {
                         "type": "string"
                       },
@@ -20407,6 +20557,21 @@
                     "properties": {
                       "api": {
                         "type": "string"
+                      },
+                      "caRef": {
+                        "properties": {
+                          "configMapName": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "configMapName",
+                          "key"
+                        ],
+                        "type": "object"
                       },
                       "insecure": {
                         "type": "boolean"
@@ -21471,6 +21636,24 @@
                         ],
                         "type": "object"
                       },
+                      "caRef": {
+                        "properties": {
+                          "configMapName": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "configMapName",
+                          "key"
+                        ],
+                        "type": "object"
+                      },
+                      "insecure": {
+                        "type": "boolean"
+                      },
                       "project": {
                         "type": "string"
                       }
@@ -21591,6 +21774,21 @@
                       },
                       "api": {
                         "type": "string"
+                      },
+                      "caRef": {
+                        "properties": {
+                          "configMapName": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "configMapName",
+                          "key"
+                        ],
+                        "type": "object"
                       },
                       "group": {
                         "type": "string"

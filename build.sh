@@ -50,7 +50,7 @@ crd_to_json_schema actions-runner-controller https://github.com/actions/actions-
 crd_to_json_schema argo-cd https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
 crd_to_json_schema argocd-extensions https://raw.githubusercontent.com/argoproj-labs/argocd-extensions/main/manifests/crds/argoproj.io_argocdextensions.yaml
 crd_to_json_schema argo-rollouts https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
-crd_to_json_schema aws-load-balancer-controller https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.4.3/v2_4_3_full.yaml
+crd_to_json_schema aws-load-balancer-controller https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases/download/v2.8.1/v2_8_1_full.yaml
 crd_to_json_schema cert-manager https://github.com/cert-manager/cert-manager/releases/download/v1.15.1/cert-manager.yaml
 crd_to_json_schema external-secrets https://raw.githubusercontent.com/external-secrets/external-secrets/main/deploy/crds/bundle.yaml
 crd_to_json_schema istio https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml

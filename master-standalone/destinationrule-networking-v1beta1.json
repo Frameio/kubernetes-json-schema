@@ -292,13 +292,7 @@
                               },
                               "ttl": {
                                 "description": "Lifetime of the cookie.",
-                                "type": "string",
-                                "x-kubernetes-validations": [
-                                  {
-                                    "message": "must be a valid duration greater than 1ms",
-                                    "rule": "duration(self) >= duration('1ms')"
-                                  }
-                                ]
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -757,13 +751,7 @@
                                     },
                                     "ttl": {
                                       "description": "Lifetime of the cookie.",
-                                      "type": "string",
-                                      "x-kubernetes-validations": [
-                                        {
-                                          "message": "must be a valid duration greater than 1ms",
-                                          "rule": "duration(self) >= duration('1ms')"
-                                        }
-                                      ]
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
@@ -1391,13 +1379,7 @@
                         },
                         "ttl": {
                           "description": "Lifetime of the cookie.",
-                          "type": "string",
-                          "x-kubernetes-validations": [
-                            {
-                              "message": "must be a valid duration greater than 1ms",
-                              "rule": "duration(self) >= duration('1ms')"
-                            }
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1856,13 +1838,7 @@
                               },
                               "ttl": {
                                 "description": "Lifetime of the cookie.",
-                                "type": "string",
-                                "x-kubernetes-validations": [
-                                  {
-                                    "message": "must be a valid duration greater than 1ms",
-                                    "rule": "duration(self) >= duration('1ms')"
-                                  }
-                                ]
+                                "type": "string"
                               }
                             },
                             "required": [
