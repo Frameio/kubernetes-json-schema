@@ -252,6 +252,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -268,6 +274,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -316,6 +328,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -348,6 +366,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -584,6 +605,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -600,6 +627,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -648,6 +681,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -680,6 +719,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -1160,6 +1202,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -1176,6 +1224,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -1224,6 +1278,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -1256,6 +1316,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -1492,6 +1555,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -1508,6 +1577,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -1556,6 +1631,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -1588,6 +1669,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -2073,6 +2157,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -2089,6 +2179,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -2137,6 +2233,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -2169,6 +2271,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -2405,6 +2510,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -2421,6 +2532,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -2469,6 +2586,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -2501,6 +2624,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -2955,6 +3081,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -2971,6 +3103,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -3019,6 +3157,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -3051,6 +3195,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -3287,6 +3434,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -3303,6 +3456,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -3351,6 +3510,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -3383,6 +3548,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -3869,6 +4037,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -3885,6 +4059,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -3933,6 +4113,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -3965,6 +4151,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -4201,6 +4390,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -4217,6 +4412,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -4265,6 +4466,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -4297,6 +4504,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -4777,6 +4987,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -4793,6 +5009,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -4841,6 +5063,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -4873,6 +5101,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -5109,6 +5340,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -5125,6 +5362,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -5173,6 +5416,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -5205,6 +5454,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -5690,6 +5942,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -5706,6 +5964,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -5754,6 +6018,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -5786,6 +6056,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -6022,6 +6295,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -6038,6 +6317,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -6086,6 +6371,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -6118,6 +6409,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -6572,6 +6866,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -6588,6 +6888,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -6636,6 +6942,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -6668,6 +6980,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -6904,6 +7219,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -6920,6 +7241,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -6968,6 +7295,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -7000,6 +7333,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -7467,6 +7803,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -7483,6 +7825,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -7531,6 +7879,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -7563,6 +7917,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -7799,6 +8156,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -7815,6 +8178,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -7863,6 +8232,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -7895,6 +8270,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -8690,6 +9068,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -8706,6 +9090,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -8754,6 +9144,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -8786,6 +9182,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -9022,6 +9421,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -9038,6 +9443,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -9086,6 +9497,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -9118,6 +9535,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -9907,6 +10327,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -9923,6 +10349,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -9971,6 +10403,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -10003,6 +10441,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -10239,6 +10680,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -10255,6 +10702,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -10303,6 +10756,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -10335,6 +10794,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -10815,6 +11277,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -10831,6 +11299,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -10879,6 +11353,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -10911,6 +11391,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -11147,6 +11630,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -11163,6 +11652,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -11211,6 +11706,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -11243,6 +11744,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -11732,6 +12236,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -11748,6 +12258,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -11796,6 +12312,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -11828,6 +12350,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -12064,6 +12589,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -12080,6 +12611,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -12128,6 +12665,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -12160,6 +12703,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -12640,6 +13186,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -12656,6 +13208,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -12704,6 +13262,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -12736,6 +13300,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -12972,6 +13539,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -12988,6 +13561,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -13036,6 +13615,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -13068,6 +13653,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -13553,6 +14141,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -13569,6 +14163,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -13617,6 +14217,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -13649,6 +14255,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -13885,6 +14494,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -13901,6 +14516,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -13949,6 +14570,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -13981,6 +14608,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -14435,6 +15065,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -14451,6 +15087,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -14499,6 +15141,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -14531,6 +15179,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -14767,6 +15418,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -14783,6 +15440,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -14831,6 +15494,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -14863,6 +15532,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -15330,6 +16002,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -15346,6 +16024,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -15394,6 +16078,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -15426,6 +16116,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -15662,6 +16355,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -15678,6 +16377,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -15726,6 +16431,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -15758,6 +16469,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -16553,6 +17267,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -16569,6 +17289,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -16617,6 +17343,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -16649,6 +17381,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -16885,6 +17620,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -16901,6 +17642,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -16949,6 +17696,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -16981,6 +17734,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -17770,6 +18526,12 @@
                                         },
                                         "helm": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "fileParameters": {
                                               "items": {
                                                 "properties": {
@@ -17786,6 +18548,12 @@
                                             },
                                             "ignoreMissingValueFiles": {
                                               "type": "boolean"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
+                                            },
+                                            "namespace": {
+                                              "type": "string"
                                             },
                                             "parameters": {
                                               "items": {
@@ -17834,6 +18602,12 @@
                                         },
                                         "kustomize": {
                                           "properties": {
+                                            "apiVersions": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            },
                                             "commonAnnotations": {
                                               "additionalProperties": {
                                                 "type": "string"
@@ -17866,6 +18640,9 @@
                                                 "type": "string"
                                               },
                                               "type": "array"
+                                            },
+                                            "kubeVersion": {
+                                              "type": "string"
                                             },
                                             "labelWithoutSelector": {
                                               "type": "boolean"
@@ -18102,6 +18879,12 @@
                                           },
                                           "helm": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "fileParameters": {
                                                 "items": {
                                                   "properties": {
@@ -18118,6 +18901,12 @@
                                               },
                                               "ignoreMissingValueFiles": {
                                                 "type": "boolean"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
+                                              },
+                                              "namespace": {
+                                                "type": "string"
                                               },
                                               "parameters": {
                                                 "items": {
@@ -18166,6 +18955,12 @@
                                           },
                                           "kustomize": {
                                             "properties": {
+                                              "apiVersions": {
+                                                "items": {
+                                                  "type": "string"
+                                                },
+                                                "type": "array"
+                                              },
                                               "commonAnnotations": {
                                                 "additionalProperties": {
                                                   "type": "string"
@@ -18198,6 +18993,9 @@
                                                   "type": "string"
                                                 },
                                                 "type": "array"
+                                              },
+                                              "kubeVersion": {
+                                                "type": "string"
                                               },
                                               "labelWithoutSelector": {
                                                 "type": "boolean"
@@ -18684,6 +19482,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -18700,6 +19504,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -18748,6 +19558,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -18780,6 +19596,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -19016,6 +19835,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -19032,6 +19857,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -19080,6 +19911,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -19112,6 +19949,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -19577,6 +20417,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -19593,6 +20439,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -19641,6 +20493,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -19673,6 +20531,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -19909,6 +20770,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -19925,6 +20792,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -19973,6 +20846,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -20005,6 +20884,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -20800,6 +21682,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -20816,6 +21704,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -20864,6 +21758,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -20896,6 +21796,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -21132,6 +22035,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -21148,6 +22057,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -21196,6 +22111,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -21228,6 +22149,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -22017,6 +22941,12 @@
                               },
                               "helm": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "fileParameters": {
                                     "items": {
                                       "properties": {
@@ -22033,6 +22963,12 @@
                                   },
                                   "ignoreMissingValueFiles": {
                                     "type": "boolean"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
+                                  },
+                                  "namespace": {
+                                    "type": "string"
                                   },
                                   "parameters": {
                                     "items": {
@@ -22081,6 +23017,12 @@
                               },
                               "kustomize": {
                                 "properties": {
+                                  "apiVersions": {
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
                                   "commonAnnotations": {
                                     "additionalProperties": {
                                       "type": "string"
@@ -22113,6 +23055,9 @@
                                       "type": "string"
                                     },
                                     "type": "array"
+                                  },
+                                  "kubeVersion": {
+                                    "type": "string"
                                   },
                                   "labelWithoutSelector": {
                                     "type": "boolean"
@@ -22349,6 +23294,12 @@
                                 },
                                 "helm": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "fileParameters": {
                                       "items": {
                                         "properties": {
@@ -22365,6 +23316,12 @@
                                     },
                                     "ignoreMissingValueFiles": {
                                       "type": "boolean"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
+                                    },
+                                    "namespace": {
+                                      "type": "string"
                                     },
                                     "parameters": {
                                       "items": {
@@ -22413,6 +23370,12 @@
                                 },
                                 "kustomize": {
                                   "properties": {
+                                    "apiVersions": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    },
                                     "commonAnnotations": {
                                       "additionalProperties": {
                                         "type": "string"
@@ -22445,6 +23408,9 @@
                                         "type": "string"
                                       },
                                       "type": "array"
+                                    },
+                                    "kubeVersion": {
+                                      "type": "string"
                                     },
                                     "labelWithoutSelector": {
                                       "type": "boolean"
@@ -23051,6 +24017,12 @@
                     },
                     "helm": {
                       "properties": {
+                        "apiVersions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
                         "fileParameters": {
                           "items": {
                             "properties": {
@@ -23067,6 +24039,12 @@
                         },
                         "ignoreMissingValueFiles": {
                           "type": "boolean"
+                        },
+                        "kubeVersion": {
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "type": "string"
                         },
                         "parameters": {
                           "items": {
@@ -23116,6 +24094,12 @@
                     },
                     "kustomize": {
                       "properties": {
+                        "apiVersions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
                         "commonAnnotations": {
                           "additionalProperties": {
                             "type": "string"
@@ -23148,6 +24132,9 @@
                             "type": "string"
                           },
                           "type": "array"
+                        },
+                        "kubeVersion": {
+                          "type": "string"
                         },
                         "labelWithoutSelector": {
                           "type": "boolean"
@@ -23387,6 +24374,12 @@
                       },
                       "helm": {
                         "properties": {
+                          "apiVersions": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
                           "fileParameters": {
                             "items": {
                               "properties": {
@@ -23403,6 +24396,12 @@
                           },
                           "ignoreMissingValueFiles": {
                             "type": "boolean"
+                          },
+                          "kubeVersion": {
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "type": "string"
                           },
                           "parameters": {
                             "items": {
@@ -23451,6 +24450,12 @@
                       },
                       "kustomize": {
                         "properties": {
+                          "apiVersions": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
                           "commonAnnotations": {
                             "additionalProperties": {
                               "type": "string"
@@ -23483,6 +24488,9 @@
                               "type": "string"
                             },
                             "type": "array"
+                          },
+                          "kubeVersion": {
+                            "type": "string"
                           },
                           "labelWithoutSelector": {
                             "type": "boolean"
