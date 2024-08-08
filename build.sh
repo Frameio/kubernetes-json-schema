@@ -68,7 +68,7 @@ crd_to_json_schema crossplane-functions https://raw.githubusercontent.com/crossp
 crd_to_json_schema crossplane-providers https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_providers.yaml
 crd_to_json_schema crossplane-deploymentruntimeconfigs https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_deploymentruntimeconfigs.yaml
 crd_to_json_schema provider-upjet-aws-providerconfigs https://raw.githubusercontent.com/crossplane-contrib/provider-upjet-aws/v1.7.0/package/crds/aws.upbound.io_providerconfigs.yaml
-crd_to_json_schema crossplane-functions https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_functions.yaml
+crd_to_json_schema provider-kubernetes-providerconfigs https://raw.githubusercontent.com/crossplane-contrib/provider-kubernetes/release-0.14/package/crds/kubernetes.crossplane.io_providerconfigs.yaml
 # Kargo
 crd_to_json_schema kargo-freights https://raw.githubusercontent.com/akuity/kargo/main/charts/kargo/resources/crds/kargo.akuity.io_freights.yaml
 crd_to_json_schema kargo-projects https://raw.githubusercontent.com/akuity/kargo/main/charts/kargo/resources/crds/kargo.akuity.io_projects.yaml
