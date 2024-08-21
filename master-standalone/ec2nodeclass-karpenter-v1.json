@@ -16,12 +16,11 @@
       "description": "EC2NodeClassSpec is the top level specification for the AWS Karpenter Provider.\nThis will contain configuration necessary to launch instances in AWS.",
       "properties": {
         "amiFamily": {
-          "description": "AMIFamily is the AMI family that instances use.",
+          "description": "AMIFamily dictates the UserData format and default BlockDeviceMappings used when generating launch templates.\nThis field is optional when using an alias amiSelectorTerm, and the value will be inferred from the alias'\nfamily. When an alias is specified, this field may only be set to its corresponding family or 'Custom'. If no\nalias is specified, this field is required.\nNOTE: We ignore the AMIFamily for hashing here because we hash the AMIFamily dynamically by using the alias using\nthe AMIFamily() helper function",
           "enum": [
             "AL2",
             "AL2023",
             "Bottlerocket",
-            "Ubuntu",
             "Custom",
             "Windows2019",
             "Windows2022"
@@ -33,6 +32,21 @@
           "items": {
             "description": "AMISelectorTerm defines selection logic for an ami used by Karpenter to launch nodes.\nIf multiple fields are used for selection, the requirements are ANDed.",
             "properties": {
+              "alias": {
+                "description": "Alias specifies which EKS optimized AMI to select.\nEach alias consists of a family and an AMI version, specified as \"family@version\".\nValid families include: al2, al2023, bottlerocket, windows2019, and windows2022.\nThe version can either be pinned to a specific AMI release, with that AMIs version format (ex: \"al2023@v20240625\" or \"bottlerocket@v1.10.0\").\nThe version can also be set to \"latest\" for any family. Setting the version to latest will result in drift when a new AMI is released. This is **not** recommended for production environments.\nNote: The Windows families do **not** support version pinning, and only latest may be used.",
+                "maxLength": 30,
+                "type": "string",
+                "x-kubernetes-validations": [
+                  {
+                    "message": "'alias' is improperly formatted, must match the format 'family@version'",
+                    "rule": "self.matches('^[a-zA-Z0-9]*@.*$')"
+                  },
+                  {
+                    "message": "family is not supported, must be one of the following: 'al2', 'al2023', 'bottlerocket', 'windows2019', 'windows2022'",
+                    "rule": "self.find('^[^@]+') in ['al2','al2023','bottlerocket','windows2019','windows2022']"
+                  }
+                ]
+              },
               "id": {
                 "description": "ID is the ami id in EC2",
                 "pattern": "ami-[0-9a-z]+",
@@ -64,15 +78,24 @@
             "type": "object"
           },
           "maxItems": 30,
+          "minItems": 1,
           "type": "array",
           "x-kubernetes-validations": [
             {
-              "message": "expected at least one, got none, ['tags', 'id', 'name']",
-              "rule": "self.all(x, has(x.tags) || has(x.id) || has(x.name))"
+              "message": "expected at least one, got none, ['tags', 'id', 'name', 'alias']",
+              "rule": "self.all(x, has(x.tags) || has(x.id) || has(x.name) || has(x.alias))"
             },
             {
               "message": "'id' is mutually exclusive, cannot be set with a combination of other fields in amiSelectorTerms",
-              "rule": "!self.all(x, has(x.id) && (has(x.tags) || has(x.name) || has(x.owner)))"
+              "rule": "!self.exists(x, has(x.id) && (has(x.alias) || has(x.tags) || has(x.name) || has(x.owner)))"
+            },
+            {
+              "message": "'alias' is mutually exclusive, cannot be set with a combination of other fields in amiSelectorTerms",
+              "rule": "!self.exists(x, has(x.alias) && (has(x.id) || has(x.tags) || has(x.name) || has(x.owner)))"
+            },
+            {
+              "message": "'alias' is mutually exclusive, cannot be set with a combination of other amiSelectorTerms",
+              "rule": "!(self.exists(x, has(x.alias)) && self.size() != 1)"
             }
           ]
         },
@@ -185,14 +208,153 @@
           ],
           "type": "string"
         },
+        "kubelet": {
+          "description": "Kubelet defines args to be used when configuring kubelet on provisioned nodes.\nThey are a subset of the upstream types, recognizing not all options may be supported.\nWherever possible, the types and names should reflect the upstream kubelet types.",
+          "properties": {
+            "clusterDNS": {
+              "description": "clusterDNS is a list of IP addresses for the cluster DNS server.\nNote that not all providers may use all addresses.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "cpuCFSQuota": {
+              "description": "CPUCFSQuota enables CPU CFS quota enforcement for containers that specify CPU limits.",
+              "type": "boolean"
+            },
+            "evictionHard": {
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^((\\d{1,2}(\\.\\d{1,2})?|100(\\.0{1,2})?)%||(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?)$"
+              },
+              "description": "EvictionHard is the map of signal names to quantities that define hard eviction thresholds",
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "valid keys for evictionHard are ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available']",
+                  "rule": "self.all(x, x in ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available'])"
+                }
+              ]
+            },
+            "evictionMaxPodGracePeriod": {
+              "description": "EvictionMaxPodGracePeriod is the maximum allowed grace period (in seconds) to use when terminating pods in\nresponse to soft eviction thresholds being met.",
+              "format": "int32",
+              "type": "integer"
+            },
+            "evictionSoft": {
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^((\\d{1,2}(\\.\\d{1,2})?|100(\\.0{1,2})?)%||(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?)$"
+              },
+              "description": "EvictionSoft is the map of signal names to quantities that define soft eviction thresholds",
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "valid keys for evictionSoft are ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available']",
+                  "rule": "self.all(x, x in ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available'])"
+                }
+              ]
+            },
+            "evictionSoftGracePeriod": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "EvictionSoftGracePeriod is the map of signal names to quantities that define grace periods for each eviction signal",
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "valid keys for evictionSoftGracePeriod are ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available']",
+                  "rule": "self.all(x, x in ['memory.available','nodefs.available','nodefs.inodesFree','imagefs.available','imagefs.inodesFree','pid.available'])"
+                }
+              ]
+            },
+            "imageGCHighThresholdPercent": {
+              "description": "ImageGCHighThresholdPercent is the percent of disk usage after which image\ngarbage collection is always run. The percent is calculated by dividing this\nfield value by 100, so this field must be between 0 and 100, inclusive.\nWhen specified, the value must be greater than ImageGCLowThresholdPercent.",
+              "format": "int32",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "imageGCLowThresholdPercent": {
+              "description": "ImageGCLowThresholdPercent is the percent of disk usage before which image\ngarbage collection is never run. Lowest disk usage to garbage collect to.\nThe percent is calculated by dividing this field value by 100,\nso the field value must be between 0 and 100, inclusive.\nWhen specified, the value must be less than imageGCHighThresholdPercent",
+              "format": "int32",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "kubeReserved": {
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$"
+              },
+              "description": "KubeReserved contains resources reserved for Kubernetes system components.",
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "valid keys for kubeReserved are ['cpu','memory','ephemeral-storage','pid']",
+                  "rule": "self.all(x, x=='cpu' || x=='memory' || x=='ephemeral-storage' || x=='pid')"
+                },
+                {
+                  "message": "kubeReserved value cannot be a negative resource quantity",
+                  "rule": "self.all(x, !self[x].startsWith('-'))"
+                }
+              ]
+            },
+            "maxPods": {
+              "description": "MaxPods is an override for the maximum number of pods that can run on\na worker node instance.",
+              "format": "int32",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "podsPerCore": {
+              "description": "PodsPerCore is an override for the number of pods that can run on a worker node\ninstance based on the number of cpu cores. This value cannot exceed MaxPods, so, if\nMaxPods is a lower value, that value will be used.",
+              "format": "int32",
+              "minimum": 0,
+              "type": "integer"
+            },
+            "systemReserved": {
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$"
+              },
+              "description": "SystemReserved contains resources reserved for OS system daemons and kernel memory.",
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "valid keys for systemReserved are ['cpu','memory','ephemeral-storage','pid']",
+                  "rule": "self.all(x, x=='cpu' || x=='memory' || x=='ephemeral-storage' || x=='pid')"
+                },
+                {
+                  "message": "systemReserved value cannot be a negative resource quantity",
+                  "rule": "self.all(x, !self[x].startsWith('-'))"
+                }
+              ]
+            }
+          },
+          "type": "object",
+          "x-kubernetes-validations": [
+            {
+              "message": "imageGCHighThresholdPercent must be greater than imageGCLowThresholdPercent",
+              "rule": "has(self.imageGCHighThresholdPercent) && has(self.imageGCLowThresholdPercent) ?  self.imageGCHighThresholdPercent > self.imageGCLowThresholdPercent  : true"
+            },
+            {
+              "message": "evictionSoft OwnerKey does not have a matching evictionSoftGracePeriod",
+              "rule": "has(self.evictionSoft) ? self.evictionSoft.all(e, (e in self.evictionSoftGracePeriod)):true"
+            },
+            {
+              "message": "evictionSoftGracePeriod OwnerKey does not have a matching evictionSoft",
+              "rule": "has(self.evictionSoftGracePeriod) ? self.evictionSoftGracePeriod.all(e, (e in self.evictionSoft)):true"
+            }
+          ]
+        },
         "metadataOptions": {
           "default": {
             "httpEndpoint": "enabled",
             "httpProtocolIPv6": "disabled",
-            "httpPutResponseHopLimit": 2,
+            "httpPutResponseHopLimit": 1,
             "httpTokens": "required"
           },
-          "description": "MetadataOptions for the generated launch template of provisioned nodes.\n\n\nThis specifies the exposure of the Instance Metadata Service to\nprovisioned EC2 nodes. For more information,\nsee Instance Metadata and User Data\n(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)\nin the Amazon Elastic Compute Cloud User Guide.\n\n\nRefer to recommended, security best practices\n(https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node)\nfor limiting exposure of Instance Metadata and User Data to pods.\nIf omitted, defaults to httpEndpoint enabled, with httpProtocolIPv6\ndisabled, with httpPutResponseLimit of 2, and with httpTokens\nrequired.",
+          "description": "MetadataOptions for the generated launch template of provisioned nodes.\n\n\nThis specifies the exposure of the Instance Metadata Service to\nprovisioned EC2 nodes. For more information,\nsee Instance Metadata and User Data\n(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)\nin the Amazon Elastic Compute Cloud User Guide.\n\n\nRefer to recommended, security best practices\n(https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node)\nfor limiting exposure of Instance Metadata and User Data to pods.\nIf omitted, defaults to httpEndpoint enabled, with httpProtocolIPv6\ndisabled, with httpPutResponseLimit of 1, and with httpTokens\nrequired.",
           "properties": {
             "httpEndpoint": {
               "default": "enabled",
@@ -213,8 +375,8 @@
               "type": "string"
             },
             "httpPutResponseHopLimit": {
-              "default": 2,
-              "description": "HTTPPutResponseHopLimit is the desired HTTP PUT response hop limit for\ninstance metadata requests. The larger the number, the further instance\nmetadata requests can travel. Possible values are integers from 1 to 64.\nIf metadata options is non-nil, but this parameter is not specified, the\ndefault value is 2.",
+              "default": 1,
+              "description": "HTTPPutResponseHopLimit is the desired HTTP PUT response hop limit for\ninstance metadata requests. The larger the number, the further instance\nmetadata requests can travel. Possible values are integers from 1 to 64.\nIf metadata options is non-nil, but this parameter is not specified, the\ndefault value is 1.",
               "format": "int64",
               "maximum": 64,
               "minimum": 1,
@@ -230,8 +392,7 @@
               "type": "string"
             }
           },
-          "type": "object",
-          "additionalProperties": false
+          "type": "object"
         },
         "role": {
           "description": "Role is the AWS identity that nodes use. This field is immutable.\nThis field is mutually exclusive from instanceProfile.\nMarking this field as immutable avoids concerns around terminating managed instance profiles from running instances.\nThis field may be made mutable in the future, assuming the correct garbage collection and drift handling is implemented\nfor the old instance profiles on an update.",
@@ -355,16 +516,16 @@
               "rule": "self.all(k, k != '')"
             },
             {
+              "message": "tag contains a restricted tag matching eks:eks-cluster-name",
+              "rule": "self.all(k, k !='eks:eks-cluster-name')"
+            },
+            {
               "message": "tag contains a restricted tag matching kubernetes.io/cluster/",
               "rule": "self.all(k, !k.startsWith('kubernetes.io/cluster') )"
             },
             {
               "message": "tag contains a restricted tag matching karpenter.sh/nodepool",
               "rule": "self.all(k, k != 'karpenter.sh/nodepool')"
-            },
-            {
-              "message": "tag contains a restricted tag matching karpenter.sh/managed-by",
-              "rule": "self.all(k, k !='karpenter.sh/managed-by')"
             },
             {
               "message": "tag contains a restricted tag matching karpenter.sh/nodeclaim",
@@ -382,16 +543,12 @@
         }
       },
       "required": [
-        "amiFamily",
+        "amiSelectorTerms",
         "securityGroupSelectorTerms",
         "subnetSelectorTerms"
       ],
       "type": "object",
       "x-kubernetes-validations": [
-        {
-          "message": "amiSelectorTerms is required when amiFamily == 'Custom'",
-          "rule": "self.amiFamily == 'Custom' ? self.amiSelectorTerms.size() != 0 : true"
-        },
         {
           "message": "must specify exactly one of ['role', 'instanceProfile']",
           "rule": "(has(self.role) && !has(self.instanceProfile)) || (!has(self.role) && has(self.instanceProfile))"
@@ -399,9 +556,32 @@
         {
           "message": "changing from 'instanceProfile' to 'role' is not supported. You must delete and recreate this node class if you want to change this.",
           "rule": "(has(oldSelf.role) && has(self.role)) || (has(oldSelf.instanceProfile) && has(self.instanceProfile))"
+        },
+        {
+          "message": "if set, amiFamily must be 'AL2' or 'Custom' when using an AL2 alias",
+          "rule": "!has(self.amiFamily) || (self.amiSelectorTerms.exists(x, has(x.alias) && x.alias.find('^[^@]+') == 'al2') ? (self.amiFamily == 'Custom' || self.amiFamily == 'AL2') : true)"
+        },
+        {
+          "message": "if set, amiFamily must be 'AL2023' or 'Custom' when using an AL2023 alias",
+          "rule": "!has(self.amiFamily) || (self.amiSelectorTerms.exists(x, has(x.alias) && x.alias.find('^[^@]+') == 'al2023') ? (self.amiFamily == 'Custom' || self.amiFamily == 'AL2023') : true)"
+        },
+        {
+          "message": "if set, amiFamily must be 'Bottlerocket' or 'Custom' when using a Bottlerocket alias",
+          "rule": "!has(self.amiFamily) || (self.amiSelectorTerms.exists(x, has(x.alias) && x.alias.find('^[^@]+') == 'bottlerocket') ? (self.amiFamily == 'Custom' || self.amiFamily == 'Bottlerocket') : true)"
+        },
+        {
+          "message": "if set, amiFamily must be 'Windows2019' or 'Custom' when using a Windows2019 alias",
+          "rule": "!has(self.amiFamily) || (self.amiSelectorTerms.exists(x, has(x.alias) && x.alias.find('^[^@]+') == 'windows2019') ? (self.amiFamily == 'Custom' || self.amiFamily == 'Windows2019') : true)"
+        },
+        {
+          "message": "if set, amiFamily must be 'Windows2022' or 'Custom' when using a Windows2022 alias",
+          "rule": "!has(self.amiFamily) || (self.amiSelectorTerms.exists(x, has(x.alias) && x.alias.find('^[^@]+') == 'windows2022') ? (self.amiFamily == 'Custom' || self.amiFamily == 'Windows2022') : true)"
+        },
+        {
+          "message": "must specify amiFamily if amiSelectorTerms does not contain an alias",
+          "rule": "self.amiSelectorTerms.exists(x, has(x.alias)) ? true : has(self.amiFamily)"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "status": {
       "description": "EC2NodeClassStatus contains the resolved state of the EC2NodeClass",
