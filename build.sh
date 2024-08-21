@@ -58,11 +58,9 @@ crd_to_json_schema istio-operator https://raw.githubusercontent.com/istio/istio/
 crd_to_json_schema kyverno https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
 crd_to_json_schema vault-secrets-operator https://raw.githubusercontent.com/ricoberger/vault-secrets-operator/main/config/crd/bases/ricoberger.de_vaultsecrets.yaml
 # Karpenter
-crd_to_json_schema karpenter-provisioners https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.sh_provisioners.yaml
-crd_to_json_schema karpenter-node-templates https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.k8s.aws_awsnodetemplates.yaml
-crd_to_json_schema karpenter-node-pools https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.sh_nodepools.yaml
-crd_to_json_schema karpenter-node-claims https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.sh_nodeclaims.yaml
-crd_to_json_schema karpenter-ec2-node-classes https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.32.9/pkg/apis/crds/karpenter.k8s.aws_ec2nodeclasses.yaml
+crd_to_json_schema karpenter-node-pools https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.37.1/pkg/apis/crds/karpenter.sh_nodepools.yaml
+crd_to_json_schema karpenter-node-claims https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.37.1/pkg/apis/crds/karpenter.sh_nodeclaims.yaml
+crd_to_json_schema karpenter-ec2-node-classes https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.37.1/pkg/apis/crds/karpenter.k8s.aws_ec2nodeclasses.yaml
 # Crossplane
 crd_to_json_schema crossplane-functions https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_functions.yaml
 crd_to_json_schema crossplane-providers https://raw.githubusercontent.com/crossplane/docs/master/content/v1.16/api/crds/pkg.crossplane.io_providers.yaml
