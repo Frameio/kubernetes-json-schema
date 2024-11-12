@@ -37,7 +37,8 @@
                               "items": {
                                 "type": "string"
                               },
-                              "type": "array"
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
                             }
                           },
                           "required": [
@@ -46,7 +47,8 @@
                           ],
                           "type": "object"
                         },
-                        "type": "array"
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "matchLabels": {
                         "additionalProperties": {
@@ -305,6 +307,9 @@
                                     "type": "string"
                                   },
                                   "skipCrds": {
+                                    "type": "boolean"
+                                  },
+                                  "skipTests": {
                                     "type": "boolean"
                                   },
                                   "valueFiles": {
@@ -658,6 +663,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -979,6 +987,9 @@
               },
               "clusters": {
                 "properties": {
+                  "flatList": {
+                    "type": "boolean"
+                  },
                   "selector": {
                     "properties": {
                       "matchExpressions": {
@@ -994,7 +1005,8 @@
                               "items": {
                                 "type": "string"
                               },
-                              "type": "array"
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
                             }
                           },
                           "required": [
@@ -1003,7 +1015,8 @@
                           ],
                           "type": "object"
                         },
-                        "type": "array"
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "matchLabels": {
                         "additionalProperties": {
@@ -1255,6 +1268,9 @@
                                     "type": "string"
                                   },
                                   "skipCrds": {
+                                    "type": "boolean"
+                                  },
+                                  "skipTests": {
                                     "type": "boolean"
                                   },
                                   "valueFiles": {
@@ -1608,6 +1624,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -2212,6 +2231,9 @@
                                   "skipCrds": {
                                     "type": "boolean"
                                   },
+                                  "skipTests": {
+                                    "type": "boolean"
+                                  },
                                   "valueFiles": {
                                     "items": {
                                       "type": "string"
@@ -2563,6 +2585,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -3136,6 +3161,9 @@
                                   "skipCrds": {
                                     "type": "boolean"
                                   },
+                                  "skipTests": {
+                                    "type": "boolean"
+                                  },
                                   "valueFiles": {
                                     "items": {
                                       "type": "string"
@@ -3489,6 +3517,9 @@
                                     "skipCrds": {
                                       "type": "boolean"
                                     },
+                                    "skipTests": {
+                                      "type": "boolean"
+                                    },
                                     "valueFiles": {
                                       "items": {
                                         "type": "string"
@@ -3822,7 +3853,8 @@
                                         "items": {
                                           "type": "string"
                                         },
-                                        "type": "array"
+                                        "type": "array",
+                                        "x-kubernetes-list-type": "atomic"
                                       }
                                     },
                                     "required": [
@@ -3831,7 +3863,8 @@
                                     ],
                                     "type": "object"
                                   },
-                                  "type": "array"
+                                  "type": "array",
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "matchLabels": {
                                   "additionalProperties": {
@@ -4090,6 +4123,9 @@
                                               "type": "string"
                                             },
                                             "skipCrds": {
+                                              "type": "boolean"
+                                            },
+                                            "skipTests": {
                                               "type": "boolean"
                                             },
                                             "valueFiles": {
@@ -4443,6 +4479,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -4764,6 +4803,9 @@
                         },
                         "clusters": {
                           "properties": {
+                            "flatList": {
+                              "type": "boolean"
+                            },
                             "selector": {
                               "properties": {
                                 "matchExpressions": {
@@ -4779,7 +4821,8 @@
                                         "items": {
                                           "type": "string"
                                         },
-                                        "type": "array"
+                                        "type": "array",
+                                        "x-kubernetes-list-type": "atomic"
                                       }
                                     },
                                     "required": [
@@ -4788,7 +4831,8 @@
                                     ],
                                     "type": "object"
                                   },
-                                  "type": "array"
+                                  "type": "array",
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "matchLabels": {
                                   "additionalProperties": {
@@ -5040,6 +5084,9 @@
                                               "type": "string"
                                             },
                                             "skipCrds": {
+                                              "type": "boolean"
+                                            },
+                                            "skipTests": {
                                               "type": "boolean"
                                             },
                                             "valueFiles": {
@@ -5393,6 +5440,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -5997,6 +6047,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -6348,6 +6401,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -6921,6 +6977,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -7272,6 +7331,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -7858,6 +7920,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -8209,6 +8274,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -9123,6 +9191,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -9474,6 +9545,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -10382,6 +10456,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -10735,6 +10812,9 @@
                                               "skipCrds": {
                                                 "type": "boolean"
                                               },
+                                              "skipTests": {
+                                                "type": "boolean"
+                                              },
                                               "valueFiles": {
                                                 "items": {
                                                   "type": "string"
@@ -11064,7 +11144,8 @@
                                     "items": {
                                       "type": "string"
                                     },
-                                    "type": "array"
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
                                   }
                                 },
                                 "required": [
@@ -11073,7 +11154,8 @@
                                 ],
                                 "type": "object"
                               },
-                              "type": "array"
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
                             },
                             "matchLabels": {
                               "additionalProperties": {
@@ -11330,6 +11412,9 @@
                                     "type": "string"
                                   },
                                   "skipCrds": {
+                                    "type": "boolean"
+                                  },
+                                  "skipTests": {
                                     "type": "boolean"
                                   },
                                   "valueFiles": {
@@ -11683,6 +11768,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -12021,7 +12109,8 @@
                                         "items": {
                                           "type": "string"
                                         },
-                                        "type": "array"
+                                        "type": "array",
+                                        "x-kubernetes-list-type": "atomic"
                                       }
                                     },
                                     "required": [
@@ -12030,7 +12119,8 @@
                                     ],
                                     "type": "object"
                                   },
-                                  "type": "array"
+                                  "type": "array",
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "matchLabels": {
                                   "additionalProperties": {
@@ -12289,6 +12379,9 @@
                                               "type": "string"
                                             },
                                             "skipCrds": {
+                                              "type": "boolean"
+                                            },
+                                            "skipTests": {
                                               "type": "boolean"
                                             },
                                             "valueFiles": {
@@ -12642,6 +12735,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -12963,6 +13059,9 @@
                         },
                         "clusters": {
                           "properties": {
+                            "flatList": {
+                              "type": "boolean"
+                            },
                             "selector": {
                               "properties": {
                                 "matchExpressions": {
@@ -12978,7 +13077,8 @@
                                         "items": {
                                           "type": "string"
                                         },
-                                        "type": "array"
+                                        "type": "array",
+                                        "x-kubernetes-list-type": "atomic"
                                       }
                                     },
                                     "required": [
@@ -12987,7 +13087,8 @@
                                     ],
                                     "type": "object"
                                   },
-                                  "type": "array"
+                                  "type": "array",
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "matchLabels": {
                                   "additionalProperties": {
@@ -13239,6 +13340,9 @@
                                               "type": "string"
                                             },
                                             "skipCrds": {
+                                              "type": "boolean"
+                                            },
+                                            "skipTests": {
                                               "type": "boolean"
                                             },
                                             "valueFiles": {
@@ -13592,6 +13696,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -14196,6 +14303,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -14547,6 +14657,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -15120,6 +15233,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -15471,6 +15587,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -16057,6 +16176,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -16408,6 +16530,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -17322,6 +17447,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -17673,6 +17801,9 @@
                                                 "type": "string"
                                               },
                                               "skipCrds": {
+                                                "type": "boolean"
+                                              },
+                                              "skipTests": {
                                                 "type": "boolean"
                                               },
                                               "valueFiles": {
@@ -18581,6 +18712,9 @@
                                             "skipCrds": {
                                               "type": "boolean"
                                             },
+                                            "skipTests": {
+                                              "type": "boolean"
+                                            },
                                             "valueFiles": {
                                               "items": {
                                                 "type": "string"
@@ -18934,6 +19068,9 @@
                                               "skipCrds": {
                                                 "type": "boolean"
                                               },
+                                              "skipTests": {
+                                                "type": "boolean"
+                                              },
                                               "valueFiles": {
                                                 "items": {
                                                   "type": "string"
@@ -19263,7 +19400,8 @@
                                     "items": {
                                       "type": "string"
                                     },
-                                    "type": "array"
+                                    "type": "array",
+                                    "x-kubernetes-list-type": "atomic"
                                   }
                                 },
                                 "required": [
@@ -19272,7 +19410,8 @@
                                 ],
                                 "type": "object"
                               },
-                              "type": "array"
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
                             },
                             "matchLabels": {
                               "additionalProperties": {
@@ -19535,6 +19674,9 @@
                                     "type": "string"
                                   },
                                   "skipCrds": {
+                                    "type": "boolean"
+                                  },
+                                  "skipTests": {
                                     "type": "boolean"
                                   },
                                   "valueFiles": {
@@ -19888,6 +20030,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -20472,6 +20617,9 @@
                                   "skipCrds": {
                                     "type": "boolean"
                                   },
+                                  "skipTests": {
+                                    "type": "boolean"
+                                  },
                                   "valueFiles": {
                                     "items": {
                                       "type": "string"
@@ -20823,6 +20971,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -21737,6 +21888,9 @@
                                   "skipCrds": {
                                     "type": "boolean"
                                   },
+                                  "skipTests": {
+                                    "type": "boolean"
+                                  },
                                   "valueFiles": {
                                     "items": {
                                       "type": "string"
@@ -22088,6 +22242,9 @@
                                       "type": "string"
                                     },
                                     "skipCrds": {
+                                      "type": "boolean"
+                                    },
+                                    "skipTests": {
                                       "type": "boolean"
                                     },
                                     "valueFiles": {
@@ -22996,6 +23153,9 @@
                                   "skipCrds": {
                                     "type": "boolean"
                                   },
+                                  "skipTests": {
+                                    "type": "boolean"
+                                  },
                                   "valueFiles": {
                                     "items": {
                                       "type": "string"
@@ -23349,6 +23509,9 @@
                                     "skipCrds": {
                                       "type": "boolean"
                                     },
+                                    "skipTests": {
+                                      "type": "boolean"
+                                    },
                                     "valueFiles": {
                                       "items": {
                                         "type": "string"
@@ -23678,7 +23841,8 @@
                           "items": {
                             "type": "string"
                           },
-                          "type": "array"
+                          "type": "array",
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -23687,7 +23851,8 @@
                       ],
                       "type": "object"
                     },
-                    "type": "array"
+                    "type": "array",
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "matchLabels": {
                     "additionalProperties": {
@@ -24072,6 +24237,9 @@
                         "skipCrds": {
                           "type": "boolean"
                         },
+                        "skipTests": {
+                          "type": "boolean"
+                        },
                         "valueFiles": {
                           "items": {
                             "type": "string"
@@ -24427,6 +24595,9 @@
                             "type": "string"
                           },
                           "skipCrds": {
+                            "type": "boolean"
+                          },
+                          "skipTests": {
                             "type": "boolean"
                           },
                           "valueFiles": {
@@ -24849,6 +25020,9 @@
               },
               "namespace": {
                 "type": "string"
+              },
+              "requiresDeletionConfirmation": {
+                "type": "boolean"
               },
               "requiresPruning": {
                 "type": "boolean"
