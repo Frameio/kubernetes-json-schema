@@ -7,6 +7,11 @@ set -o pipefail
 function crd_to_json_schema() {
   local api_version crd_group crd_kind crd_version document input kind
 
+  # ONLY=<name> regenerates a single source, e.g. `ONLY=kyverno ./build.sh`.
+  if [[ -n "${ONLY:-}" && "${1}" != "${ONLY}" ]]; then
+    return 0
+  fi
+
   echo "Processing ${1}..."
   input="input/${1}.yaml"
   curl --silent --show-error --location "${@:2}" > "${input}"
@@ -55,7 +60,8 @@ crd_to_json_schema cert-manager https://github.com/cert-manager/cert-manager/rel
 crd_to_json_schema external-secrets https://raw.githubusercontent.com/external-secrets/external-secrets/main/deploy/crds/bundle.yaml
 crd_to_json_schema istio https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
 crd_to_json_schema istio-operator https://raw.githubusercontent.com/istio/istio/master/manifests/charts/istio-operator/crds/crd-operator.yaml
-crd_to_json_schema kyverno https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
+# Keep equal to the Kyverno version in production (Frameio/gitops applicationsets/kyverno/*/Chart.yaml).
+crd_to_json_schema kyverno https://github.com/kyverno/kyverno/releases/download/v1.18.2/install.yaml
 crd_to_json_schema vault-secrets-operator https://raw.githubusercontent.com/ricoberger/vault-secrets-operator/main/config/crd/bases/ricoberger.de_vaultsecrets.yaml
 # Karpenter
 crd_to_json_schema karpenter-node-pools https://raw.githubusercontent.com/aws/karpenter-provider-aws/v0.37.1/pkg/apis/crds/karpenter.sh_nodepools.yaml
